@@ -1,5 +1,7 @@
 // Minimal SDG listing — editorial, no boxes
 
+import Link from "next/link"
+
 export const sdgConfig: Record<number, { name: string; color: string }> = {
   1: { name: "No Poverty", color: "#E5243B" },
   2: { name: "Zero Hunger", color: "#DDA63A" },
@@ -67,12 +69,12 @@ export function SDGGrid({ sdgs }: SDGGridProps) {
 
       <p className="mt-10 text-[12.5px] leading-relaxed text-foreground/55">
         Learn more about the{" "}
-        <a
+        <Link
           href="/sdgs"
           className="text-[#193d00] underline-offset-4 transition-colors hover:text-[#0d2400] hover:underline"
         >
           UN Sustainable Development Goals
-        </a>
+        </Link>
         .
       </p>
     </div>
