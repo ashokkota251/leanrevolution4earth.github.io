@@ -1,48 +1,51 @@
 export function OurVision() {
   return (
     <section
-      className="relative overflow-hidden px-6 py-16 md:py-20"
-      style={{ backgroundColor: "#f6f8f1" }}
+      className="relative overflow-hidden px-6 py-16 text-white md:py-20"
+      style={{ backgroundColor: "#193d00" }}
     >
-      {/* Soft warm-white lift from center */}
+      {/* Moss bloom from top-center */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_50%,rgba(255,255,255,0.85)_0%,transparent_75%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_0%,rgba(122,180,60,0.32)_0%,transparent_65%)]"
       />
-      {/* Whisper of moss at the edges */}
+      {/* Deep-forest anchor at the bottom */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(25,61,0,0.06)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_40%_at_50%_100%,rgba(4,12,0,0.55)_0%,transparent_70%)]"
       />
-      {/* Fading top + bottom hairlines in forest */}
+      {/* Film grain */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#193d00]/25 to-transparent"
+        className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
+      {/* Fading top + bottom hairlines */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#193d00]/25 to-transparent"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
       />
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
-        {/* Kicker in forest */}
-        <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-[#193d00]">
+        {/* Kicker */}
+        <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-white/70">
           our vision
         </span>
 
-        {/* Tiny forest hairline under the kicker */}
-        <span
-          aria-hidden
-          className="mt-4 block h-px w-10 bg-[#193d00]/50"
-        />
-
         {/* Vision statement */}
-        <p className="mt-6 text-balance font-[family-name:var(--font-display)] text-[clamp(1.05rem,1.75vw,1.25rem)] font-normal leading-[1.65] tracking-[-0.003em] text-foreground/85 md:mt-7">
+        <p className="mt-7 text-balance font-[family-name:var(--font-display)] text-[clamp(1.05rem,1.75vw,1.25rem)] font-normal leading-[1.65] tracking-[-0.003em] text-white/90 md:mt-8">
           A future where people together with nature{" "}
-          <em className="italic text-[#193d00]">flourish</em>. And every generation inherits a{" "}
-          <em className="italic text-[#193d00]">healthier</em>,{" "}
-          <em className="italic text-[#193d00]">fairer</em>, and{" "}
-          <em className="italic text-[#193d00]">greener</em> Earth.
+          <em className="italic text-white">flourish</em>. And every generation inherits a{" "}
+          <em className="italic text-white">healthier</em>,{" "}
+          <em className="italic text-white">fairer</em>, and{" "}
+          <em className="italic text-white">greener</em> Earth.
         </p>
       </div>
     </section>

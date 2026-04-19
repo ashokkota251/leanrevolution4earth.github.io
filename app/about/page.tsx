@@ -231,20 +231,20 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <ul className="mt-16 grid gap-5 sm:grid-cols-2 md:grid-cols-4">
+          <ul className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-2 md:grid-cols-4">
             {team.map((member) => (
               <li
                 key={member.name}
-                className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f4f6f1]"
+                className="group relative aspect-square overflow-hidden rounded-xl bg-[#f4f6f1]"
               >
-                <div className="flex h-full w-full items-center justify-center font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.28em] text-foreground/35">
+                <div className="flex h-full w-full items-center justify-center font-[family-name:var(--font-display)] text-[10.5px] italic tracking-[0.28em] text-foreground/35">
                   photo
                 </div>
-                <div className="pointer-events-none absolute inset-0 flex flex-col items-start justify-end bg-[linear-gradient(180deg,transparent_45%,rgba(13,36,0,0.88)_100%)] p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <h3 className="font-[family-name:var(--font-display)] text-[1rem] font-normal leading-tight text-white">
+                <div className="pointer-events-none absolute inset-0 flex flex-col items-start justify-end bg-[linear-gradient(180deg,transparent_45%,rgba(13,36,0,0.88)_100%)] p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                  <h3 className="font-[family-name:var(--font-display)] text-[0.95rem] font-normal leading-tight text-white">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-[12px] tracking-wide text-white/80">
+                  <p className="mt-0.5 text-[11.5px] tracking-wide text-white/80">
                     {member.role}
                   </p>
                 </div>

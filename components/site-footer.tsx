@@ -49,13 +49,18 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr] md:gap-10">
           {/* Brand */}
           <div className="flex flex-col gap-5">
-            <Image
-              src={logo}
-              alt="LR4E"
-              width={56}
-              height={56}
-              className="h-12 w-12"
-            />
+            <div className="flex items-center gap-3">
+              <Image
+                src={logo}
+                alt="LR4E"
+                width={56}
+                height={56}
+                className="h-12 w-12 shrink-0"
+              />
+              <span className="font-[family-name:var(--font-display)] text-[1.125rem] font-normal leading-tight tracking-[-0.01em] text-white md:text-[1.2rem]">
+                Lean Revolution <em className="italic">4 Earth</em>
+              </span>
+            </div>
             <p className="font-[family-name:var(--font-display)] text-[1.15rem] italic leading-[1.4] text-white/90">
               A Just, Lean, and Living Earth for All.
             </p>
