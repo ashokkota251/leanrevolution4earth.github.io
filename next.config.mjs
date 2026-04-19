@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production'
+
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: '/leanrevolution4earth.github.io',
+  basePath: isProd ? '/leanrevolution4earth.github.io' : '',
   typescript: {
     ignoreBuildErrors: true,
   },
