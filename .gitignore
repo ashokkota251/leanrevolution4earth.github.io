@@ -12,3 +12,4 @@ out/
 .vercel
 pnpm-lock.yaml
 .claude/
+/graphify-out
