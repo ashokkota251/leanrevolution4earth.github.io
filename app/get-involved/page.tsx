@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Mail, MapPin } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
+import { DonationCard } from "@/components/donation-card"
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
 import getInvolvedHero from "@/public/images/get-involved/get-involved-hero.jpg"
 import supportUsImage from "@/public/images/get-involved/support-us.jpg"
@@ -117,7 +118,8 @@ export default function GetInvolvedPage() {
         className="relative scroll-mt-32 overflow-hidden px-6 py-16 md:py-20"
         style={{ backgroundColor: "#ffffff" }}
       >
-        <div className="relative mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+        <div className="relative mx-auto max-w-6xl">
+        <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           {/* Image panel */}
           <figure className="relative lg:sticky lg:top-36">
             <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#f4f6f1] shadow-[0_30px_60px_-30px_rgba(13,36,0,0.35)]">
@@ -181,21 +183,33 @@ export default function GetInvolvedPage() {
               </p>
             </div>
 
-            {/* Donation placeholder card */}
-            <div className="mt-4 rounded-2xl border border-dashed border-[#193d00]/30 bg-white p-8 text-center">
-              <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]/75">
-                coming soon
-              </span>
-              <p className="mt-4 font-[family-name:var(--font-display)] text-[1.3rem] font-normal leading-tight text-foreground">
-                Donate via <em className="italic text-[#193d00]">Razorpay</em>,{" "}
-                <em className="italic text-[#193d00]">UPI</em>, or{" "}
-                <em className="italic text-[#193d00]">Bank transfer</em>.
-              </p>
-              <p className="mx-auto mt-3 max-w-md text-[0.9rem] leading-relaxed text-foreground/60">
-                Secure donation details will be published here shortly. In the meantime, reach out below to support us directly.
-              </p>
-            </div>
           </div>
+        </div>
+
+        {/* Donation card — full chapter width */}
+        <div className="mx-auto mt-16 max-w-3xl md:mt-20">
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-baseline gap-3">
+              <span
+                aria-hidden
+                className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]"
+              >
+                ways to give
+              </span>
+              <span aria-hidden className="h-px w-8 bg-[#193d00]/45" />
+            </div>
+            <h3 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.6vw,2rem)] font-light leading-[1.1] tracking-[-0.012em] text-foreground">
+              Donate <em className="font-normal italic text-[#193d00]">directly</em> to our account
+            </h3>
+            <p className="mx-auto mt-3 max-w-lg text-[0.95rem] leading-relaxed text-foreground/70">
+              Online gateways are coming soon. For now, you can make a direct bank transfer — every rupee goes straight to the work.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <DonationCard />
+          </div>
+        </div>
         </div>
       </section>
 
