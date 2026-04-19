@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Fraunces } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
+
+const GA_ID = 'G-T4TK350EKJ'
+const isProd = process.env.NODE_ENV === 'production'
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-inter' })
 const fraunces = Fraunces({
@@ -145,6 +149,23 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+
+        {isProd && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   )
