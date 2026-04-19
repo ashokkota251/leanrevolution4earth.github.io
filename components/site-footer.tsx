@@ -5,9 +5,9 @@ import logo from "@/public/images/lr4e-logo.png"
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Pillars", href: "/pillars" },
-  { name: "Initiatives", href: "/initiatives" },
+  { name: "Our Story", href: "/our-story" },
+  { name: "Our Pillars", href: "/our-pillars" },
+  { name: "Our Work", href: "/our-work" },
   { name: "Get Involved", href: "/get-involved" },
 ]
 

@@ -70,7 +70,7 @@ export function SDGGrid({ sdgs }: SDGGridProps) {
       <p className="mt-10 text-[12.5px] leading-relaxed text-foreground/55">
         Learn more about the{" "}
         <Link
-          href="/sdgs"
+          href="/sdg-alignment"
           className="text-[#193d00] underline-offset-4 transition-colors hover:text-[#0d2400] hover:underline"
         >
           UN Sustainable Development Goals

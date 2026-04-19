@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Story, mission, and team behind Lean Revolution 4 Earth — India's climate justice NGO building inclusive, community-led solutions to the climate crisis.",
-  alternates: { canonical: "/about/" },
+  alternates: { canonical: "/our-story/" },
 }
 
 const leanPrinciples = [
@@ -81,7 +81,7 @@ const GRAIN_URL =
 export default function AboutPage() {
   return (
     <>
-      <BreadcrumbJsonLd trail={[{ name: "About", path: "/about" }]} />
+      <BreadcrumbJsonLd trail={[{ name: "Our Story", path: "/our-story" }]} />
 
       {/* 1 — Editorial hero with image backdrop */}
       <section className="relative isolate flex min-h-[68vh] items-center overflow-hidden bg-[#0d2400] text-white md:min-h-[76vh]">

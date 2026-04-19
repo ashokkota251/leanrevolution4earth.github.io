@@ -28,7 +28,7 @@ export function WhoWeAreSnapshot() {
             &ldquo;How can we fight the climate crisis without leaving anyone behind?&rdquo;
           </blockquote>
           <Link
-            href="/about"
+            href="/our-story"
             className="mt-2 inline-flex w-fit items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-[#0e1d5e]"
           >
             Learn More About Us

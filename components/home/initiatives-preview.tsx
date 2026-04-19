@@ -8,7 +8,7 @@ const initiatives = [
     hindi: "प्रोजेक्ट नव्य ऊर्जा",
     description:
       "Project Navya Urja drives energy justice by bringing affordable, decentralized clean energy solutions to rural, coastal, and tribal communities.",
-    href: "/initiatives#navya-urja",
+    href: "/our-work#navya-urja",
   },
   {
     index: "ii",
@@ -16,7 +16,7 @@ const initiatives = [
     hindi: "प्रोजेक्ट साहस तरू",
     description:
       "Project Saahas Taru works at the intersection of ecosystem restoration, community-led afforestation and community wellbeing.",
-    href: "/initiatives#saahas-taru",
+    href: "/our-work#saahas-taru",
   },
   {
     index: "iii",
@@ -24,7 +24,7 @@ const initiatives = [
     hindi: "",
     description:
       "The Bank of Waste is a youth-driven movement transforming educational institutions into waste-responsible zones.",
-    href: "/initiatives#bank-of-waste",
+    href: "/our-work#bank-of-waste",
   },
 ]
 
@@ -98,7 +98,7 @@ export function InitiativesPreview() {
         {/* Footer link */}
         <div className="mt-12 flex justify-center">
           <Link
-            href="/initiatives"
+            href="/our-work"
             className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/25 px-6 py-3 text-[14px] font-medium text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
           >
             <span>View all initiatives</span>

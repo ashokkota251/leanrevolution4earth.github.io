@@ -13,10 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: number
   }> = [
     { path: "/", changeFrequency: "weekly", priority: 1.0 },
-    { path: "/about/", changeFrequency: "monthly", priority: 0.9 },
-    { path: "/pillars/", changeFrequency: "monthly", priority: 0.9 },
-    { path: "/initiatives/", changeFrequency: "monthly", priority: 0.9 },
-    { path: "/sdgs/", changeFrequency: "yearly", priority: 0.6 },
+    { path: "/our-story/", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/our-pillars/", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/our-work/", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/sdg-alignment/", changeFrequency: "yearly", priority: 0.6 },
     { path: "/get-involved/", changeFrequency: "monthly", priority: 0.8 },
   ]
 

@@ -21,51 +21,51 @@ type NavItem = {
 
 const navigation: NavItem[] = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Our Story", href: "/our-story" },
   {
-    name: "Pillars",
-    href: "/pillars",
+    name: "Our Pillars",
+    href: "/our-pillars",
     children: [
       {
         name: "Green Transitions & Resilience",
         description: "Clean energy. Resilient futures.",
-        href: "/pillars#green-transitions",
+        href: "/our-pillars#green-transitions",
       },
       {
         name: "Nature, Communities & Livelihoods",
         description: "Ecosystems and green livelihoods.",
-        href: "/pillars#nature-communities",
+        href: "/our-pillars#nature-communities",
       },
       {
         name: "Climate Consciousness",
         description: "Inspiring minds and leaders.",
-        href: "/pillars#climate-consciousness",
+        href: "/our-pillars#climate-consciousness",
       },
       {
         name: "Climate Advocacy",
         description: "Local voices, global justice.",
-        href: "/pillars#climate-advocacy",
+        href: "/our-pillars#climate-advocacy",
       },
     ],
   },
   {
-    name: "Initiatives",
-    href: "/initiatives",
+    name: "Our Work",
+    href: "/our-work",
     children: [
       {
         name: "Project Navya Urja",
         description: "Renewable energy for all.",
-        href: "/initiatives#navya-urja",
+        href: "/our-work#navya-urja",
       },
       {
         name: "Project Saahas Taru",
         description: "Community-led afforestation.",
-        href: "/initiatives#saahas-taru",
+        href: "/our-work#saahas-taru",
       },
       {
         name: "The Bank of Waste",
         description: "Campuses as zero-plastic zones.",
-        href: "/initiatives#bank-of-waste",
+        href: "/our-work#bank-of-waste",
       },
     ],
   },
@@ -81,11 +81,11 @@ export function SiteHeader() {
   const normalizedPath = pathname.replace(/\/+$/, "") || "/"
   const overHeroPage =
     normalizedPath === "/" ||
-    normalizedPath === "/about" ||
-    normalizedPath === "/pillars" ||
-    normalizedPath === "/initiatives" ||
+    normalizedPath === "/our-story" ||
+    normalizedPath === "/our-pillars" ||
+    normalizedPath === "/our-work" ||
     normalizedPath === "/get-involved" ||
-    normalizedPath === "/sdgs"
+    normalizedPath === "/sdg-alignment"
   const closeTimer = useRef<number | null>(null)
 
   useEffect(() => {

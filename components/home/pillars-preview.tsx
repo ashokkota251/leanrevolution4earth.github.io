@@ -13,7 +13,7 @@ const pillars = [
     title: "Green Transitions & Resilience",
     description:
       "Building sustainable energy and climate-resilient communities.",
-    href: "/pillars#green-transitions",
+    href: "/our-pillars#green-transitions",
   },
   {
     image: natureCommunities,
@@ -21,7 +21,7 @@ const pillars = [
     title: "Nature, Communities & Livelihoods",
     description:
       "Protecting ecosystems while strengthening local livelihoods.",
-    href: "/pillars#nature-communities",
+    href: "/our-pillars#nature-communities",
   },
   {
     image: climateConsciousness,
@@ -29,7 +29,7 @@ const pillars = [
     title: "Climate Consciousness",
     description:
       "Raising awareness and empowering informed climate action.",
-    href: "/pillars#climate-consciousness",
+    href: "/our-pillars#climate-consciousness",
   },
   {
     image: climateAdvocacy,
@@ -37,7 +37,7 @@ const pillars = [
     title: "Climate Advocacy",
     description:
       "Amplifying grassroots voices for systemic policy change.",
-    href: "/pillars#climate-advocacy",
+    href: "/our-pillars#climate-advocacy",
   },
 ]
 
@@ -115,7 +115,7 @@ export function PillarsPreview() {
         {/* Footer link */}
         <div className="mt-12 flex justify-center">
           <Link
-            href="/pillars"
+            href="/our-pillars"
             className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/25 px-6 py-3 text-[14px] font-medium text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
           >
             <span>View all 4 pillars</span>

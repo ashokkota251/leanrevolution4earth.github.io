@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Our 4 Pillars",
   description:
     "Four pillars driving climate justice across India — green transitions, nature-based solutions, climate consciousness, and community-led advocacy.",
-  alternates: { canonical: "/pillars/" },
+  alternates: { canonical: "/our-pillars/" },
 }
 
 type Pillar = {
@@ -96,7 +96,7 @@ const GRAIN_URL =
 export default function PillarsPage() {
   return (
     <>
-      <BreadcrumbJsonLd trail={[{ name: "Pillars", path: "/pillars" }]} />
+      <BreadcrumbJsonLd trail={[{ name: "Our Pillars", path: "/our-pillars" }]} />
 
       {/* 1 — Editorial hero (mirrors About's treatment) */}
       <section className="relative isolate flex min-h-[68vh] items-center overflow-hidden bg-[#0d2400] text-white md:min-h-[76vh]">

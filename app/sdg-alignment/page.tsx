@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "SDG Alignment",
   description:
     "How Lean Revolution 4 Earth's climate work in India aligns with the UN Sustainable Development Goals — a consolidated view across 13 goals.",
-  alternates: { canonical: "/sdgs/" },
+  alternates: { canonical: "/sdg-alignment/" },
 }
 
 const GRAIN_URL =
@@ -224,8 +224,8 @@ export default function SDGAlignmentPage() {
     <>
       <BreadcrumbJsonLd
         trail={[
-          { name: "Initiatives", path: "/initiatives" },
-          { name: "SDG Alignment", path: "/sdgs" },
+          { name: "Our Work", path: "/our-work" },
+          { name: "SDG Alignment", path: "/sdg-alignment" },
         ]}
       />
 
@@ -251,7 +251,7 @@ export default function SDGAlignmentPage() {
 
         <div className="relative mx-auto flex max-w-6xl flex-col items-center text-center">
           <Link
-            href="/initiatives"
+            href="/our-work"
             className="group inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.28em] text-white/70 transition-colors hover:text-white"
           >
             <ArrowLeft
@@ -405,7 +405,7 @@ export default function SDGAlignmentPage() {
             .
           </p>
           <Link
-            href="/initiatives"
+            href="/our-work"
             className="group mt-8 inline-flex items-center gap-2 rounded-full border border-[#193d00]/25 px-5 py-2.5 text-[12.5px] font-medium tracking-wide text-[#193d00] transition-all duration-300 hover:border-[#193d00] hover:bg-[#193d00] hover:text-white"
           >
             <ArrowLeft

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Our Initiatives",
   description:
     "Three climate projects across India — decentralised clean energy, community-led afforestation, and youth-led circular waste systems to beat plastic pollution.",
-  alternates: { canonical: "/initiatives/" },
+  alternates: { canonical: "/our-work/" },
 }
 
 type Initiative = {
@@ -104,7 +104,7 @@ const GRAIN_URL =
 export default function InitiativesPage() {
   return (
     <>
-      <BreadcrumbJsonLd trail={[{ name: "Initiatives", path: "/initiatives" }]} />
+      <BreadcrumbJsonLd trail={[{ name: "Our Work", path: "/our-work" }]} />
 
       {/* 1 — Editorial hero with image backdrop */}
       <section className="relative isolate flex min-h-[68vh] items-center overflow-hidden bg-[#0d2400] text-white md:min-h-[76vh]">
