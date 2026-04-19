@@ -230,7 +230,7 @@ export function SiteHeader() {
                         : "text-foreground/80 hover:text-foreground"
                     }`}
                     aria-expanded={hasChildren ? isOpen : undefined}
-                    aria-haspopup={hasChildren ? "menu" : undefined}
+                    aria-haspopup={hasChildren ? "true" : undefined}
                   >
                     <span className="relative">
                       {item.name}
@@ -256,8 +256,7 @@ export function SiteHeader() {
                   {/* Dropdown panel */}
                   {hasChildren && (
                     <div
-                      role="menu"
-                      aria-label={item.name}
+                      aria-label={`${item.name} submenu`}
                       className={`absolute left-1/2 top-full -translate-x-1/2 pt-3 transition-[opacity,transform] duration-300 ease-out ${
                         isOpen
                           ? "pointer-events-auto translate-y-0 opacity-100"
@@ -275,7 +274,7 @@ export function SiteHeader() {
                             onClick={() => setOpenMenu(null)}
                             className="flex items-center gap-1 text-[10px] font-medium uppercase tracking-[0.2em] text-primary transition-opacity hover:opacity-70"
                           >
-                            View all
+                            View all {item.name.toLowerCase()}
                             <span aria-hidden>→</span>
                           </Link>
                         </div>
@@ -286,7 +285,7 @@ export function SiteHeader() {
                               <Link
                                 href={child.href}
                                 onClick={() => setOpenMenu(null)}
-                                className="group/item relative flex items-start gap-4 rounded-xl px-3 py-2.5 transition-colors hover:bg-[var(--color-green-light)]"
+                                className="group/item relative flex items-start gap-4 rounded-xl px-3 py-2.5 transition-colors hover:bg-[#f6f8f1]"
                                 style={{
                                   transitionDelay: isOpen
                                     ? `${ci * 40}ms`

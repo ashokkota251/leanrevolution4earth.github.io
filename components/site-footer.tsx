@@ -75,9 +75,9 @@ export function SiteFooter() {
 
           {/* Navigate */}
           <div className="flex flex-col gap-5">
-            <h4 className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.28em] text-white/75">
+            <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.28em] text-white/75">
               navigate
-            </h4>
+            </span>
             <nav className="flex flex-col gap-2.5">
               {quickLinks.map((link) => (
                 <Link
@@ -97,9 +97,9 @@ export function SiteFooter() {
 
           {/* Reach us */}
           <div className="flex flex-col gap-5">
-            <h4 className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.28em] text-white/75">
+            <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.28em] text-white/75">
               reach us
-            </h4>
+            </span>
             <div className="flex flex-col gap-4 text-[14px] text-white/75">
               <a
                 href="mailto:info@leanrevolution4earth.com"

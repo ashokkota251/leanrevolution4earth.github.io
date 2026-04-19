@@ -58,7 +58,7 @@ export function InitiativesPreview() {
               >
                 {/* Top row: roman index + arrow */}
                 <div className="flex items-start justify-between">
-                  <span className="font-[family-name:var(--font-display)] text-[13px] italic tracking-[0.24em] text-foreground/55">
+                  <span className="font-[family-name:var(--font-display)] text-[13px] italic tracking-[0.24em] text-[#193d00]/75">
                     project {item.index}
                   </span>
                   <ArrowUpRight
@@ -73,7 +73,7 @@ export function InitiativesPreview() {
                 </h3>
 
                 {/* Hindi sub-line (reserves space even when empty for row alignment) */}
-                <p className="mt-1.5 min-h-[1.35rem] text-[0.95rem] text-foreground/60">
+                <p className="mt-1.5 min-h-[1.35rem] text-[0.95rem] text-foreground/75">
                   {item.hindi || "\u00A0"}
                 </p>
 
