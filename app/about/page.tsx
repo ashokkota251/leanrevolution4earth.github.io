@@ -44,13 +44,33 @@ const team: Member[] = [
     ],
   },
   {
-    id: "aarav-sharma",
-    name: "Aarav Sharma",
-    role: "Co-Founder & Programs",
+    id: "rohan-kotwalkar",
+    name: "Rohan Kotwalkar",
+    role: "Co-Founder & Director",
     image: null,
     bio: [
-      "Short bio to be added. Brings experience in community organising, program design, and on-the-ground implementation — joining the movement from a background in sustainable agriculture and grassroots advocacy.",
-      "More of the story coming soon.",
+      "Co-directs Lean Revolution 4 Earth alongside Pragati — guiding strategy, partnerships, and the long-view direction of the work.",
+      "Full bio coming soon.",
+    ],
+  },
+  {
+    id: "dinesh-awari",
+    name: "Dinesh Awari",
+    role: "Admin Head",
+    image: null,
+    bio: [
+      "Keeps the administrative and operational backbone of LR4E running day-to-day — the quiet engine behind the programs.",
+      "Full bio coming soon.",
+    ],
+  },
+  {
+    id: "sandesh-shirke",
+    name: "Sandesh Shirke",
+    role: "Animal Welfare",
+    image: null,
+    bio: [
+      "Leads LR4E's animal welfare work — ensuring compassion for every living being stays at the heart of our climate-justice practice.",
+      "Full bio coming soon.",
     ],
   },
 ]
