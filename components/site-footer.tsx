@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Mail, MapPin } from "lucide-react"
+import logo from "@/public/images/lr4e-logo.png"
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -17,10 +18,10 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div className="flex flex-col gap-3">
-            <Image 
-              src="/images/lr4e-logo.png" 
-              alt="LR4E Logo" 
-              width={36} 
+            <Image
+              src={logo}
+              alt="LR4E Logo"
+              width={36}
               height={36}
               className="h-9 w-9"
             />

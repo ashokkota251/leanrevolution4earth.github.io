@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
+import logo from "@/public/images/lr4e-logo.png"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -20,10 +21,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
-          <Image 
-            src="/images/lr4e-logo.png" 
-            alt="LR4E Logo" 
-            width={40} 
+          <Image
+            src={logo}
+            alt="LR4E Logo"
+            width={40}
             height={40}
             className="h-10 w-10"
           />
