@@ -4,8 +4,8 @@
   "description": "A Just, Lean, and Living Earth for All.",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#07140f",
-  "theme_color": "#07140f",
+  "background_color": "#0d2400",
+  "theme_color": "#0d2400",
   "icons": [
     {
       "src": "./android-chrome-192x192.png",
