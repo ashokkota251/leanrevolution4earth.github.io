@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production'
+// Static export. To switch deployments, set NEXT_PUBLIC_BASE_PATH at build time
+// (leave empty for custom domain or org-root pages; set to "/repo-name" for a
+// GitHub Pages project repo). Kept in sync with lib/site.ts.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 const nextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
-  basePath: isProd ? '/leanrevolution4earth.github.io' : '',
+  basePath,
   typescript: {
     ignoreBuildErrors: true,
   },

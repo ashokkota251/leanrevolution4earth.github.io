@@ -24,7 +24,7 @@ const initiatives = [
     hindi: "",
     description:
       "The Bank of Waste is a youth-driven movement transforming educational institutions into waste-responsible zones.",
-    href: "/initiatives#bank-of-plastic",
+    href: "/initiatives#bank-of-waste",
   },
 ]
 
@@ -54,7 +54,7 @@ export function InitiativesPreview() {
             <li key={item.title}>
               <Link
                 href={item.href}
-                className="group relative flex h-full flex-col rounded-2xl border border-foreground/[0.08] bg-white p-7 transition-all duration-500 hover:-translate-y-0.5 hover:border-foreground/25 hover:shadow-[0_24px_48px_-24px_rgba(7,20,15,0.28)]"
+                className="group relative flex h-full flex-col rounded-2xl border border-foreground/[0.08] bg-white p-7 transition-all duration-500 hover:-translate-y-0.5 hover:border-[#193d00]/35 hover:shadow-[0_24px_48px_-24px_rgba(13,36,0,0.32)]"
               >
                 {/* Top row: roman index + arrow */}
                 <div className="flex items-start justify-between">

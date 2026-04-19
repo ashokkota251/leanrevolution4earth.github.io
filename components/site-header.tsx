@@ -78,7 +78,14 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const pathname = usePathname()
-  const isHome = pathname === "/"
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/"
+  const overHeroPage =
+    normalizedPath === "/" ||
+    normalizedPath === "/about" ||
+    normalizedPath === "/pillars" ||
+    normalizedPath === "/initiatives" ||
+    normalizedPath === "/get-involved" ||
+    normalizedPath === "/sdgs"
   const closeTimer = useRef<number | null>(null)
 
   useEffect(() => {
@@ -122,8 +129,8 @@ export function SiteHeader() {
     setMobileExpanded(null)
   }, [pathname])
 
-  const overHero = isHome && !scrolled && !mobileOpen
-  const headerPosition = isHome ? "fixed" : "sticky"
+  const overHero = overHeroPage && !scrolled && !mobileOpen
+  const headerPosition = overHeroPage ? "fixed" : "sticky"
 
   const hoverOpen = (name: string) => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current)
@@ -189,8 +196,8 @@ export function SiteHeader() {
                       href={item.href}
                       className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300 ${
                         overHero
-                          ? "bg-white text-[#07140f] hover:bg-white/90"
-                          : "bg-primary text-primary-foreground hover:bg-green-dark"
+                          ? "bg-white text-[#193d00] hover:bg-white/90"
+                          : "bg-primary text-primary-foreground hover:bg-[#0d2400]"
                       }`}
                     >
                       <span className="relative z-10">{item.name}</span>
@@ -199,8 +206,8 @@ export function SiteHeader() {
                         className="relative z-10 inline-block h-1.5 w-1.5 rounded-full bg-primary transition-transform duration-300 group-hover:scale-150"
                         style={{
                           backgroundColor: overHero
-                            ? "#16a34a"
-                            : "rgba(255,255,255,0.85)",
+                            ? "#0e1d5e"
+                            : "rgba(255,255,255,0.9)",
                         }}
                       />
                     </Link>
@@ -339,12 +346,17 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className="fixed inset-0 z-[60] flex h-[100dvh] flex-col bg-[#07140f] text-white md:hidden lr4e-drawer-in"
+          className="fixed inset-0 z-[60] flex h-[100dvh] flex-col bg-[#0d2400] text-white md:hidden lr4e-drawer-in"
         >
-          {/* Atmosphere */}
+          {/* Atmosphere: navy sky glow at top */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(22,163,74,0.18)_0%,transparent_65%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(14,29,94,0.42)_0%,transparent_65%)]"
+          />
+          {/* Moss glow at bottom */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(42,100,20,0.2)_0%,transparent_65%)]"
           />
           <div
             aria-hidden
@@ -464,7 +476,7 @@ export function SiteHeader() {
                 <Link
                   href="/get-involved"
                   onClick={() => setMobileOpen(false)}
-                  className="group flex items-center justify-between gap-3 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-[#07140f] transition-all duration-300 hover:bg-primary hover:text-white"
+                  className="group flex items-center justify-between gap-3 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-[#193d00] transition-all duration-300 hover:bg-[#0e1d5e] hover:text-white"
                 >
                   <span>Get Involved</span>
                   <ArrowUpRight

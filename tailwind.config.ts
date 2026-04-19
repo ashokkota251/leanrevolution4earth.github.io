@@ -11,12 +11,6 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans-serif"],
         serif: ["var(--font-playfair)", "serif"],
       },
-      colors: {
-        "green-dark": "var(--green-dark)",
-        "green-light": "var(--green-light)",
-        blue: "var(--blue)",
-        "blue-light": "var(--blue-light)",
-      },
     },
   },
   plugins: [],

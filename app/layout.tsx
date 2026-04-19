@@ -120,7 +120,7 @@ const websiteJsonLd = {
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#07140f' },
+    { media: '(prefers-color-scheme: dark)', color: '#0d2400' },
   ],
   colorScheme: 'light',
   width: 'device-width',

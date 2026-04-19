@@ -2,9 +2,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import greenTransitions from "@/public/images/pillars/green-transitions.jpg"
-import natureCommunities from "@/public/images/pillars/nature-communities.png"
-import climateConsciousness from "@/public/images/pillars/climate-consciousness.png"
-import climateAdvocacy from "@/public/images/pillars/climate-advocacy.png"
+import natureCommunities from "@/public/images/pillars/nature-communities.jpg"
+import climateConsciousness from "@/public/images/pillars/climate-consciousness.jpg"
+import climateAdvocacy from "@/public/images/pillars/climate-advocacy.jpg"
 
 const pillars = [
   {
@@ -44,7 +44,7 @@ const pillars = [
 export function PillarsPreview() {
   return (
     <section className="relative bg-background px-6 py-24 md:py-28">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Section header */}
         <div className="flex flex-col items-center text-center">
           <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-foreground/75">
@@ -79,7 +79,7 @@ export function PillarsPreview() {
                 {/* Legibility gradient */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.15)_40%,rgba(7,20,15,0.85)_100%)] transition-opacity duration-500 group-hover:opacity-95"
+                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,29,94,0.22)_0%,rgba(13,36,0,0.3)_45%,rgba(7,18,0,0.95)_100%)] transition-opacity duration-500 group-hover:opacity-95"
                 />
                 {/* Grain */}
                 <div
@@ -99,7 +99,7 @@ export function PillarsPreview() {
                   <p className="text-[13.5px] leading-snug text-white/85">
                     {pillar.description}
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-2 self-start rounded-full border border-white/45 bg-white/5 px-4 py-1.5 text-[12.5px] font-medium text-white backdrop-blur-sm transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#07140f]">
+                  <span className="mt-3 inline-flex items-center gap-2 self-start rounded-full border border-white/45 bg-white/5 px-4 py-1.5 text-[12.5px] font-medium text-white backdrop-blur-sm transition-all duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#193d00]">
                     Explore
                     <ArrowUpRight
                       className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"

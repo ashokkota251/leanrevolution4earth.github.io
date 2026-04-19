@@ -19,10 +19,24 @@ export function SiteFooter() {
       className="relative overflow-hidden text-white"
       style={{ backgroundColor: "#050d0a" }}
     >
-      {/* Subtle green glow from the top edge */}
+      {/* Moss bloom from the top edge — continues the CTA's ground glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_50%_0%,rgba(22,163,74,0.12)_0%,transparent_65%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_50%_0%,rgba(42,100,20,0.18)_0%,transparent_65%)]"
+      />
+      {/* Whisper of navy sky, tucked into a corner */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_45%_55%_at_12%_5%,rgba(14,29,94,0.22)_0%,transparent_70%)]"
+      />
+      {/* Film grain for paper-like texture */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
       />
       {/* Fading top hairline */}
       <div

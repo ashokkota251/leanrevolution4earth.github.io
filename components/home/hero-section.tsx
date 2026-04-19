@@ -51,7 +51,7 @@ export function HeroSection() {
       aria-label="Lean Revolution 4 Earth hero"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative isolate flex min-h-screen min-h-[100dvh] items-center overflow-hidden bg-[#07140f] text-white"
+      className="relative isolate flex min-h-screen min-h-[100dvh] items-center overflow-hidden bg-[#0d2400] text-white"
     >
       {/* ── Slides ─────────────────────────────────────────── */}
       <div className="absolute inset-0">
@@ -86,12 +86,12 @@ export function HeroSection() {
       {/* ── Atmosphere: legibility gradient (softer at bottom) ── */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,20,15,0.55)_0%,rgba(7,20,15,0.2)_30%,rgba(7,20,15,0.35)_70%,rgba(7,20,15,0.5)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(14,29,94,0.55)_0%,rgba(14,29,94,0.18)_30%,rgba(13,36,0,0.42)_70%,rgba(7,18,0,0.78)_100%)]"
       />
-      {/* ── Radial vignette ──────────────────────────────── */}
+      {/* ── Radial vignette: navy sky over deep forest ──── */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(6,24,18,0.35)_70%,rgba(4,14,10,0.6)_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,rgba(14,29,94,0.35)_0%,transparent_55%),radial-gradient(ellipse_at_center,transparent_0%,rgba(7,18,0,0.45)_75%,rgba(4,12,0,0.78)_100%)]"
       />
       {/* ── Film grain overlay ───────────────────────────── */}
       <div

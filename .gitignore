@@ -13,3 +13,9 @@ out/
 pnpm-lock.yaml
 .claude/
 /graphify-out
+
+# Local-only: uncompressed source images kept outside the repo
+image-originals/
+
+# Build artifacts
+*.tsbuildinfo

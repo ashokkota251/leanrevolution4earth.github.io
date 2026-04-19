@@ -9,7 +9,7 @@ export function WhoWeAreSnapshot() {
       className="px-6 py-20"
       style={{ backgroundColor: "#ffffff" }}
     >
-      <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-5">
           <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-foreground/75">
             who we are
@@ -29,7 +29,7 @@ export function WhoWeAreSnapshot() {
           </blockquote>
           <Link
             href="/about"
-            className="mt-2 inline-flex w-fit items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-green-dark"
+            className="mt-2 inline-flex w-fit items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-[#0e1d5e]"
           >
             Learn More About Us
             <ArrowRight className="h-4 w-4" />
@@ -38,7 +38,7 @@ export function WhoWeAreSnapshot() {
 
         {/* Image */}
         <figure className="relative">
-          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted shadow-[0_20px_50px_-20px_rgba(6,24,18,0.35)]">
+          <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-muted shadow-[0_20px_50px_-20px_rgba(13,36,0,0.4)]">
             <Image
               src={whoWeArePhoto}
               alt="Children playing and splashing water in a forest stream"
@@ -50,7 +50,7 @@ export function WhoWeAreSnapshot() {
             {/* soft inner vignette for depth */}
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(6,24,18,0.25)_100%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(13,36,0,0.28)_100%)]"
             />
           </div>
           <figcaption className="mt-3 flex items-center gap-3 pl-1">

@@ -5,12 +5,22 @@ export function CtaSection() {
   return (
     <section
       className="relative overflow-hidden px-6 py-28 text-white md:py-32"
-      style={{ backgroundColor: "#07140f" }}
+      style={{ backgroundColor: "#0d2400" }}
     >
-      {/* Atmospheric radial lift — subtle green glow */}
+      {/* Atmospheric bloom — navy sky glow over forest floor */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(22,163,74,0.22)_0%,transparent_70%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_10%,rgba(14,29,94,0.45)_0%,transparent_65%)]"
+      />
+      {/* Moss glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_90%,rgba(42,100,20,0.22)_0%,transparent_65%)]"
+      />
+      {/* Deep forest vignette */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,transparent_0%,rgba(4,12,0,0.65)_100%)]"
       />
 
       {/* Film grain */}
@@ -50,7 +60,7 @@ export function CtaSection() {
         <div className="mt-12 flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
           <Link
             href="/get-involved"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-3.5 text-[13px] font-medium text-[#07140f] transition-all duration-300 hover:bg-primary hover:text-white"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-3.5 text-[13px] font-medium text-[#193d00] transition-all duration-300 hover:bg-[#0e1d5e] hover:text-white"
           >
             <span>Donate Now</span>
             <span
