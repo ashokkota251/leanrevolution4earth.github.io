@@ -67,8 +67,7 @@ export function HeroSection() {
               style={{ opacity: active ? 1 : 0 }}
             >
               <div
-                className="absolute inset-0 lr4e-kenburns"
-                style={{ animationDelay: `${-i * 6}s` }}
+                className={`absolute inset-0 ${active ? "lr4e-kenburns" : ""}`}
               >
                 <Image
                   src={src}
