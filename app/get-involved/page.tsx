@@ -296,35 +296,31 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      {/* 6 — Donation: full-bleed navy band with editorial invitation + receipt card */}
+      {/* 6 — Donation: deep-forest band matching the shared CTA + footer */}
       <section
         className="relative overflow-hidden px-6 py-20 text-white md:py-24"
-        style={{ backgroundColor: "#0e1d5e" }}
+        style={{ backgroundColor: "#0d2400" }}
       >
-        {/* Cobalt bloom at the top */}
+        {/* Navy sky bloom at top — matches the CTA recipe */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_0%,rgba(88,110,220,0.3)_0%,transparent_65%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_10%,rgba(14,29,94,0.42)_0%,transparent_65%)]"
         />
-        {/* Deep-navy sink at the bottom */}
+        {/* Moss glow at bottom */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_45%_at_50%_100%,rgba(6,13,46,0.6)_0%,transparent_70%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_90%,rgba(42,100,20,0.22)_0%,transparent_65%)]"
+        />
+        {/* Deep forest sink */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,transparent_0%,rgba(4,12,0,0.55)_100%)]"
         />
         {/* Grain */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay"
+          className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-overlay"
           style={{ backgroundImage: GRAIN_URL }}
-        />
-        {/* Fading white hairlines top + bottom */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
         />
 
         <div className="relative mx-auto max-w-6xl">
@@ -351,22 +347,6 @@ export default function GetInvolvedPage() {
               <p className="text-[1rem] leading-relaxed text-white/80">
                 Online payment gateways are coming soon. For now, we&apos;re accepting donations via direct bank transfer — so every contribution lands in our account without a cut.
               </p>
-
-              <ul className="mt-2 flex flex-col gap-3 border-l border-white/15 pl-5">
-                {[
-                  "Solar panels in energy-poor villages",
-                  "Saplings in restored forests and mangroves",
-                  "Clean-campus programs led by youth",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-snug text-white/85">
-                    <span
-                      aria-hidden
-                      className="mt-[0.55rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-white/55"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
 
               <p className="mt-2 text-[0.875rem] leading-relaxed text-white/65">
                 After transferring, share a screenshot with{" "}

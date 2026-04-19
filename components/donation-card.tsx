@@ -26,19 +26,7 @@ export function DonationCard() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[#193d00]/15 bg-[#faf8f0] shadow-[0_30px_60px_-20px_rgba(6,13,46,0.55)]">
-      {/* Decorative perforated edge at the top — like a paper receipt */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[6px]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 4px 3px, #0e1d5e 1.1px, transparent 1.4px)",
-          backgroundSize: "8px 6px",
-          opacity: 0.35,
-        }}
-      />
-
+    <div className="relative overflow-hidden rounded-2xl border border-[#193d00]/15 bg-[#faf8f0] shadow-[0_30px_60px_-20px_rgba(4,12,0,0.55)]">
       {/* Header */}
       <div className="flex items-start justify-between gap-4 border-b border-[#193d00]/10 px-6 pb-5 pt-7 md:px-7">
         <div>
@@ -104,18 +92,6 @@ export function DonationCard() {
           <span className="text-[0.9rem] text-foreground/90">{BANK.branch}</span>
         </Row>
       </dl>
-
-      {/* Perforated edge at the bottom */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[6px]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 4px 3px, #0e1d5e 1.1px, transparent 1.4px)",
-          backgroundSize: "8px 6px",
-          opacity: 0.35,
-        }}
-      />
     </div>
   )
 }
