@@ -4,6 +4,7 @@ import { Trash2, Target, RefreshCw, Zap } from "lucide-react"
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
 import { CtaSection } from "@/components/home/cta-section"
 import aboutHero from "@/public/images/about/about-hero.jpg"
+import pragatiShirke from "@/public/images/about/team/pragati-shirke.jpg"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -19,15 +20,39 @@ const leanPrinciples = [
   { icon: RefreshCw, lean: "Continuous Improvement", climate: "Adapt with Communities" },
 ]
 
-const team = [
-  { name: "Aditya", role: "Founder & Director" },
-  { name: "Priya", role: "Operations Lead" },
-  { name: "Rajesh", role: "Community Outreach" },
-  { name: "Neha", role: "Program Manager" },
-  { name: "Vikram", role: "Tech Lead" },
-  { name: "Asha", role: "Communications" },
-  { name: "Arjun", role: "Impact Lead" },
-  { name: "Meera", role: "Field Coordinator" },
+type Member = {
+  id: string
+  name: string
+  role: string
+  image: typeof pragatiShirke | null
+  alt?: string
+  bio: string[]
+}
+
+const team: Member[] = [
+  {
+    id: "pragati-shirke",
+    name: "Pragati Shirke",
+    role: "Co-Founder & Director",
+    image: pragatiShirke,
+    alt: "Pragati Shirke tending plants in a mountain garden",
+    bio: [
+      "I didn't begin my journey in the fields. I began in courtrooms. Trained as a lawyer, I was taught to seek justice within defined frameworks. But over time, I found myself drawn beyond those four courtroom walls — towards the people and places where justice isn't argued.",
+      "My work slowly shifted from legal texts to lived realities. Working with my hands, alongside communities, changed me. Whether it's climate action or social development, I believe transformation happens when we show up, stay present, and work together.",
+      "Today, I see my role as a bridge — between systems and people, between policy and practice.",
+      "I carry a quiet but firm belief: that the work we do now can shape a more just, balanced, and compassionate world — not just for us, but for those who come after us.",
+    ],
+  },
+  {
+    id: "aarav-sharma",
+    name: "Aarav Sharma",
+    role: "Co-Founder & Programs",
+    image: null,
+    bio: [
+      "Short bio to be added. Brings experience in community organising, program design, and on-the-ground implementation — joining the movement from a background in sustainable agriculture and grassroots advocacy.",
+      "More of the story coming soon.",
+    ],
+  },
 ]
 
 const GRAIN_URL =
@@ -231,26 +256,71 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <ul className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-2 md:grid-cols-4">
-            {team.map((member) => (
-              <li
-                key={member.name}
-                className="group relative aspect-square overflow-hidden rounded-xl bg-[#f4f6f1]"
-              >
-                <div className="flex h-full w-full items-center justify-center font-[family-name:var(--font-display)] text-[10.5px] italic tracking-[0.28em] text-foreground/35">
-                  photo
-                </div>
-                <div className="pointer-events-none absolute inset-0 flex flex-col items-start justify-end bg-[linear-gradient(180deg,transparent_45%,rgba(13,36,0,0.88)_100%)] p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  <h3 className="font-[family-name:var(--font-display)] text-[0.95rem] font-normal leading-tight text-white">
-                    {member.name}
-                  </h3>
-                  <p className="mt-0.5 text-[11.5px] tracking-wide text-white/80">
-                    {member.role}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className="mx-auto mt-16 flex max-w-5xl flex-col gap-16 md:gap-20">
+            {team.map((member, idx) => {
+              const flipped = idx % 2 === 1
+              const [firstName, ...rest] = member.name.split(" ")
+              const lastName = rest.join(" ")
+              return (
+                <article
+                  key={member.id}
+                  className={`grid items-start gap-8 md:gap-12 md:grid-cols-[auto_1fr] ${
+                    flipped ? "md:grid-cols-[1fr_auto]" : ""
+                  }`}
+                >
+                  {/* Portrait */}
+                  <figure
+                    className={`relative ${flipped ? "md:order-2" : ""}`}
+                  >
+                    <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#f4f6f1] shadow-[0_24px_48px_-24px_rgba(13,36,0,0.3)] md:w-[260px] lg:w-[300px]">
+                      {member.image ? (
+                        <Image
+                          src={member.image}
+                          alt={member.alt ?? member.name}
+                          fill
+                          sizes="(min-width: 1024px) 300px, (min-width: 768px) 260px, 100vw"
+                          placeholder="blur"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center font-[family-name:var(--font-display)] text-[10.5px] italic tracking-[0.3em] text-foreground/35">
+                          photo
+                        </div>
+                      )}
+                      {member.image && (
+                        <div
+                          aria-hidden
+                          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_65%,rgba(13,36,0,0.28)_100%)]"
+                        />
+                      )}
+                    </div>
+                  </figure>
+
+                  {/* Bio */}
+                  <div className="flex flex-col gap-5">
+                    <div>
+                      <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-[#193d00]/80">
+                        {member.role}
+                      </p>
+                      <h3 className="mt-2 font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.25vw,2.5rem)] font-light leading-[1.08] tracking-[-0.015em] text-foreground">
+                        {firstName}{" "}
+                        {lastName && (
+                          <em className="font-normal italic text-[#193d00]">
+                            {lastName}
+                          </em>
+                        )}
+                      </h3>
+                    </div>
+                    <div className="flex flex-col gap-4 text-[0.975rem] leading-relaxed text-foreground/75">
+                      {member.bio.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
         </div>
       </section>
 
