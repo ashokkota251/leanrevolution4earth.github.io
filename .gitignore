@@ -10,5 +10,5 @@ out/
 .env*.local
 .DS_Store
 .vercel
-yarn.lock
+pnpm-lock.yaml
 .claude/
