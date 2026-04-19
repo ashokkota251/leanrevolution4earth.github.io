@@ -3,11 +3,11 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
-import hero1 from "@/public/images/hero/hero-1.jpg"
-import hero2 from "@/public/images/hero/hero-2.jpg"
-import hero3 from "@/public/images/hero/hero-3.jpg"
-import hero4 from "@/public/images/hero/hero-4.jpg"
-import hero5 from "@/public/images/hero/hero-5.jpg"
+import hero1 from "@/public/images/hero/hero-1.webp"
+import hero2 from "@/public/images/hero/hero-2.webp"
+import hero3 from "@/public/images/hero/hero-3.webp"
+import hero4 from "@/public/images/hero/hero-4.webp"
+import hero5 from "@/public/images/hero/hero-5.webp"
 
 const slides = [hero1, hero2, hero3, hero4, hero5]
 
@@ -74,7 +74,8 @@ export function HeroSection() {
                   src={src}
                   alt=""
                   fill
-                  priority
+                  priority={i === 0}
+                  loading={i === 0 ? "eager" : "lazy"}
                   sizes="100vw"
                   className="object-cover"
                   placeholder="blur"
