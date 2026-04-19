@@ -1,9 +1,9 @@
 // Site-wide constants. Deploy-time configurable via env vars.
 //
-// To switch deployments, set NEXT_PUBLIC_SITE_URL (and optionally
-// NEXT_PUBLIC_BASE_PATH in next.config.mjs) at build time:
+// Default matches the current GitHub Pages deployment.
+// Override at build time when switching hosts:
 //
-//   Custom domain (recommended):
+//   Custom domain (e.g. leanrevolution4earth.org):
 //     NEXT_PUBLIC_SITE_URL=https://leanrevolution4earth.org
 //     NEXT_PUBLIC_BASE_PATH=
 //
@@ -14,9 +14,12 @@
 //   GitHub Pages org root (repo is <org>.github.io):
 //     NEXT_PUBLIC_SITE_URL=https://leanrevolution4earth.github.io
 //     NEXT_PUBLIC_BASE_PATH=
+//
+// Keep in sync with next.config.mjs.
 
 const rawSiteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://leanrevolution4earth.org"
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://ashokkota251.github.io/leanrevolution4earth.github.io"
 
 // Strip any trailing slash so we can safely append paths.
 export const SITE_URL = rawSiteUrl.replace(/\/+$/, "")
