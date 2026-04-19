@@ -11,13 +11,10 @@ export function WhoWeAreSnapshot() {
     >
       <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-3">
-            <span className="inline-block h-px w-8 bg-foreground/25" />
-            <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.34em] text-foreground/75">
-              who we are
-            </span>
-          </div>
-          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.75rem,3.8vw,2.75rem)] font-light leading-[1.14] tracking-[-0.018em] text-foreground">
+          <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-foreground/75">
+            who we are
+          </span>
+          <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.875rem,4.5vw,3rem)] font-light leading-[1.12] tracking-[-0.02em] text-foreground">
             Fighting the climate crisis{" "}
             <em className="font-normal italic">
               without leaving anyone behind

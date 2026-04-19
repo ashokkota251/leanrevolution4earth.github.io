@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react"
 import logo from "@/public/images/lr4e-logo.png"
 
 type Child = {
@@ -97,11 +97,30 @@ export function SiteHeader() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenMenu(null)
+      if (e.key === "Escape") {
+        setOpenMenu(null)
+        setMobileOpen(false)
+      }
     }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   }, [])
+
+  // Lock body scroll while the mobile drawer is open.
+  useEffect(() => {
+    if (!mobileOpen) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = prev
+    }
+  }, [mobileOpen])
+
+  // Close drawer on route change
+  useEffect(() => {
+    setMobileOpen(false)
+    setMobileExpanded(null)
+  }, [pathname])
 
   const overHero = isHome && !scrolled && !mobileOpen
   const headerPosition = isHome ? "fixed" : "sticky"
@@ -314,76 +333,165 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile nav */}
+      {/* Mobile drawer — full-screen editorial */}
       {mobileOpen && (
-        <nav className="border-t border-border/50 bg-background px-5 pb-6 md:hidden">
-          <ul className="flex flex-col gap-1 pt-3">
-            {navigation.map((item) => {
-              const hasChildren = !!item.children?.length
-              const expanded = mobileExpanded === item.name
-              if (item.cta) {
-                return (
-                  <li key={item.name} className="mt-3">
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-full bg-primary px-5 py-3 text-center text-sm font-medium text-primary-foreground transition-colors hover:bg-green-dark"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                )
-              }
-              return (
-                <li key={item.name}>
-                  <div className="flex items-center">
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex-1 rounded-lg px-3 py-2.5 text-sm text-foreground/85 transition-colors hover:bg-muted"
-                    >
-                      {item.name}
-                    </Link>
-                    {hasChildren && (
-                      <button
-                        onClick={() =>
-                          setMobileExpanded(expanded ? null : item.name)
-                        }
-                        className="rounded-lg p-2 text-muted-foreground hover:bg-muted"
-                        aria-label={`Toggle ${item.name} submenu`}
-                        aria-expanded={expanded}
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+          className="fixed inset-0 z-[60] flex h-[100dvh] flex-col bg-[#07140f] text-white md:hidden lr4e-drawer-in"
+        >
+          {/* Atmosphere */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(22,163,74,0.18)_0%,transparent_65%)]"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.1] mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+            }}
+          />
+
+          {/* Top bar — pinned */}
+          <div className="relative z-10 flex shrink-0 items-center justify-between px-5 py-3">
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center"
+              aria-label="Home"
+            >
+              <Image
+                src={logo}
+                alt="LR4E"
+                width={96}
+                height={96}
+                className="h-11 w-11 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+              />
+            </Link>
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/85 transition-all duration-300 hover:rotate-90 hover:border-white hover:bg-white/10 hover:text-white"
+            >
+              <X className="h-4 w-4" strokeWidth={1.75} />
+            </button>
+          </div>
+
+          {/* Scrollable middle — nav + CTA */}
+          <div className="relative z-10 flex-1 overflow-y-auto overscroll-contain">
+            <div className="flex min-h-full flex-col px-5 pb-6 pt-2">
+              {/* Nav list */}
+              <ul className="flex flex-col">
+                {navigation
+                  .filter((item) => !item.cta)
+                  .map((item, i) => {
+                    const hasChildren = !!item.children?.length
+                    const expanded = mobileExpanded === item.name
+                    const delay = 80 + i * 60
+                    return (
+                      <li
+                        key={item.name}
+                        className="border-b border-white/10 lr4e-rise"
+                        style={{ animationDelay: `${delay}ms` }}
                       >
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform duration-300 ${
-                            expanded ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    )}
-                  </div>
-                  {hasChildren && expanded && (
-                    <ul className="ml-3 mt-1 flex flex-col gap-0.5 border-l border-border/60 pl-3">
-                      {item.children!.map((child) => (
-                        <li key={child.href}>
+                        <div className="flex items-stretch">
                           <Link
-                            href={child.href}
-                            onClick={() => {
-                              setMobileOpen(false)
-                              setMobileExpanded(null)
-                            }}
-                            className="block rounded-md px-2 py-2 text-[13px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                            href={item.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="group flex flex-1 items-center py-3.5 pr-2"
                           >
-                            {child.name}
+                            <span className="font-[family-name:var(--font-display)] text-[1.35rem] font-light leading-none tracking-[-0.01em] text-white transition-colors group-hover:text-white sm:text-[1.5rem]">
+                              {item.name}
+                            </span>
+                            <ArrowUpRight
+                              className="ml-auto h-4 w-4 text-white/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                              strokeWidth={1.5}
+                            />
                           </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
+                          {hasChildren && (
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setMobileExpanded(expanded ? null : item.name)
+                              }
+                              aria-label={`Toggle ${item.name} submenu`}
+                              aria-expanded={expanded}
+                              className="inline-flex h-10 w-10 shrink-0 items-center justify-center self-center rounded-full text-white/60 transition-colors hover:text-white"
+                            >
+                              <ChevronDown
+                                className={`h-4 w-4 transition-transform duration-300 ${
+                                  expanded ? "rotate-180" : ""
+                                }`}
+                                strokeWidth={1.5}
+                              />
+                            </button>
+                          )}
+                        </div>
+
+                        {hasChildren && expanded && (
+                          <ul className="pb-3">
+                            {item.children!.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  onClick={() => {
+                                    setMobileOpen(false)
+                                    setMobileExpanded(null)
+                                  }}
+                                  className="block py-1.5 text-[14px] leading-snug text-white/65 transition-colors hover:text-white"
+                                >
+                                  {child.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    )
+                  })}
+              </ul>
+
+              {/* CTA */}
+              <div
+                className="mt-7 lr4e-rise"
+                style={{
+                  animationDelay: `${80 + (navigation.length - 1) * 60 + 60}ms`,
+                }}
+              >
+                <Link
+                  href="/get-involved"
+                  onClick={() => setMobileOpen(false)}
+                  className="group flex items-center justify-between gap-3 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-[#07140f] transition-all duration-300 hover:bg-primary hover:text-white"
+                >
+                  <span>Get Involved</span>
+                  <ArrowUpRight
+                    className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={2}
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer — pinned bottom */}
+          <div
+            className="relative z-10 shrink-0 border-t border-white/10 px-5 py-5 lr4e-fade"
+            style={{ animationDelay: "600ms" }}
+          >
+            <p className="font-[family-name:var(--font-display)] text-[0.95rem] italic leading-snug text-white/85">
+              A Just, Lean, and Living Earth for All.
+            </p>
+            <a
+              href="mailto:info@leanrevolution4earth.com"
+              className="mt-1.5 inline-block text-[13px] text-white/60 transition-colors hover:text-white"
+            >
+              info@leanrevolution4earth.com
+            </a>
+          </div>
+        </div>
       )}
     </header>
   )

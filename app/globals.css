@@ -106,8 +106,8 @@
 }
 
 @keyframes lr4e-kenburns {
-  0% { transform: scale(1.06) translate3d(0, 0, 0); }
-  100% { transform: scale(1.18) translate3d(-1.5%, -1.2%, 0); }
+  0% { transform: scale(1.05) translate3d(0, 0, 0); }
+  100% { transform: scale(1.16) translate3d(-1.2%, -1%, 0); }
 }
 
 @keyframes lr4e-rise-in {
@@ -131,7 +131,20 @@
   100% { transform: scaleX(1); }
 }
 
-.lr4e-kenburns { animation: lr4e-kenburns 9000ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
+@keyframes lr4e-drawer-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.lr4e-drawer-in { animation: lr4e-drawer-in 500ms cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+.lr4e-kenburns { animation: lr4e-kenburns 20s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate; }
+.lr4e-kenburns,
+.lr4e-drawer-in,
+.lr4e-rise,
+.lr4e-fade,
+.lr4e-fill,
+.lr4e-hairline { will-change: transform, opacity; }
 .lr4e-rise { animation: lr4e-rise-in 1100ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .lr4e-fade { animation: lr4e-fade-in 1800ms ease-out both; }
 .lr4e-fill { animation: lr4e-fill-bar var(--lr4e-autoplay, 6500ms) linear forwards; transform-origin: left; }

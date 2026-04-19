@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import { SDGGrid } from "@/components/sdg-badge"
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
 
 export const metadata: Metadata = {
-  title: "Our Initiatives | Lean Revolution 4 Earth",
+  title: "Our Initiatives",
   description: "Explore LR4E's three flagship projects — Navya Urja, Saahas Taru, and Bank of Plastic.",
+  alternates: { canonical: "/initiatives" },
 }
 
 const initiatives = [
@@ -67,6 +69,7 @@ const initiatives = [
 export default function InitiativesPage() {
   return (
     <>
+      <BreadcrumbJsonLd trail={[{ name: "Initiatives", path: "/initiatives" }]} />
       {/* Page header */}
       <section 
         className="px-6 py-20 text-center"

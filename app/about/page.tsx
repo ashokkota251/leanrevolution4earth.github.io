@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import { Trash2, Target, RefreshCw, Zap } from "lucide-react"
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
 
 export const metadata: Metadata = {
-  title: "About Us | Lean Revolution 4 Earth",
+  title: "About Us",
   description: "Learn about LR4E — our story, mission, team, values, and commitment to climate justice.",
+  alternates: { canonical: "/about" },
 }
 
 const leanPrinciples = [
@@ -27,6 +29,7 @@ const team = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd trail={[{ name: "About", path: "/about" }]} />
       {/* Page header */}
       <section 
         className="px-6 py-20 text-center"

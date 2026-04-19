@@ -51,7 +51,7 @@ export function HeroSection() {
       aria-label="Lean Revolution 4 Earth hero"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative isolate flex min-h-screen items-center overflow-hidden bg-[#07140f] text-white"
+      className="relative isolate flex min-h-screen min-h-[100dvh] items-center overflow-hidden bg-[#07140f] text-white"
     >
       {/* ── Slides ─────────────────────────────────────────── */}
       <div className="absolute inset-0">
@@ -61,18 +61,18 @@ export function HeroSection() {
             <div
               key={i}
               aria-hidden={!active}
-              className="absolute inset-0 transition-opacity duration-[1600ms] ease-[cubic-bezier(0.65,0,0.35,1)]"
+              className="absolute inset-0 transition-opacity duration-[1800ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
               style={{ opacity: active ? 1 : 0 }}
             >
               <div
-                key={`kb-${i}-${progressKey}`}
-                className={active ? "absolute inset-0 lr4e-kenburns" : "absolute inset-0"}
+                className="absolute inset-0 lr4e-kenburns"
+                style={{ animationDelay: `${-i * 6}s` }}
               >
                 <Image
                   src={src}
                   alt=""
                   fill
-                  priority={i === 0}
+                  priority
                   sizes="100vw"
                   className="object-cover"
                   placeholder="blur"
@@ -104,23 +104,51 @@ export function HeroSection() {
       />
 
       {/* ── Main content: only the wordmark ──────────────── */}
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-5 text-center sm:px-6">
         <h1
-          className="whitespace-nowrap font-[family-name:var(--font-display)] text-[clamp(1.875rem,5.8vw,4.75rem)] font-normal leading-[1.05] tracking-[-0.015em] text-white lr4e-rise"
+          className="text-balance font-[family-name:var(--font-display)] text-[clamp(2.1rem,6.5vw,4.75rem)] font-normal leading-[1.05] tracking-[-0.015em] text-white sm:whitespace-nowrap lr4e-rise"
           style={{
             animationDelay: "200ms",
             textShadow:
               "0 1px 2px rgba(0,0,0,0.35), 0 8px 30px rgba(0,0,0,0.35)",
           }}
         >
-          Lean Revolution 4 Earth
+          <span aria-hidden="true">Lean Revolution 4 Earth</span>
+          <span className="sr-only">
+            Lean Revolution 4 Earth — climate justice through lean action, afforestation, and community-led clean energy.
+          </span>
         </h1>
         {/* decorative hairline under wordmark */}
         <span
           aria-hidden
           className="mt-8 block h-px w-20 origin-left scale-x-0 bg-white/60 lr4e-hairline"
         />
+
+        {/* Mobile-only scroll cue (hidden on md+ because desktop has the bottom bar) */}
+        <div
+          aria-hidden
+          className="mt-14 flex flex-col items-center gap-2 md:hidden lr4e-fade"
+          style={{ animationDelay: "900ms" }}
+        >
+          <span className="text-[10px] uppercase tracking-[0.4em] text-white/60">
+            scroll
+          </span>
+          <span className="relative block h-9 w-px overflow-hidden bg-white/15">
+            <span
+              className="absolute inset-x-0 top-0 h-3 animate-[lr4e-scrollcue_2.4s_ease-in-out_infinite] bg-white/80"
+              style={{ animationName: "lr4e-scrollcue" }}
+            />
+          </span>
+        </div>
       </div>
+
+      <style>{`
+        @keyframes lr4e-scrollcue {
+          0% { transform: translateY(-100%); }
+          60% { transform: translateY(300%); }
+          100% { transform: translateY(300%); }
+        }
+      `}</style>
 
       {/* ── Bottom bar: controls + indicators ────────────── */}
       <div className="absolute bottom-8 left-6 right-6 z-10 flex items-center justify-between gap-6 md:bottom-10 md:left-12 md:right-12">

@@ -31,32 +31,18 @@ export function CtaSection() {
         act
       </span>
 
-      {/* Fading top + bottom hairlines */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-      />
-
       <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
         {/* Kicker */}
-        <div className="flex items-center gap-3">
-          <span className="inline-block h-px w-10 bg-white/40" />
-          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.34em] text-white/85">
-            join us
-          </span>
-          <span className="inline-block h-px w-10 bg-white/40" />
-        </div>
+        <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-white/90">
+          join us
+        </span>
 
         {/* Headline */}
         <h2 className="mt-8 text-balance font-[family-name:var(--font-display)] text-[clamp(2.25rem,5.5vw,4rem)] font-light leading-[1.02] tracking-[-0.025em] text-white">
           Be Part of the <em className="font-normal italic">Revolution</em>
         </h2>
 
-        <p className="mx-auto mt-6 max-w-lg text-[0.95rem] leading-relaxed text-white/75 md:text-[1rem]">
+        <p className="mx-auto mt-6 max-w-lg text-[1rem] leading-relaxed text-white/85 md:text-[1.0625rem]">
           Every action counts. Join us in building a just and sustainable future for all.
         </p>
 
@@ -80,12 +66,8 @@ export function CtaSection() {
 
           <Link
             href="/get-involved#contact"
-            className="group relative inline-flex items-center gap-2 text-[13px] font-medium text-white/85 transition-colors hover:text-white"
+            className="group relative inline-flex items-center text-[14px] font-medium text-white/90 transition-colors hover:text-white"
           >
-            <span
-              aria-hidden
-              className="inline-block h-px w-5 bg-white/50 transition-all duration-300 group-hover:w-9 group-hover:bg-white"
-            />
             <span className="relative">
               Contact Us
               <span

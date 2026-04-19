@@ -45,7 +45,6 @@ export function SiteFooter() {
             <p className="font-[family-name:var(--font-display)] text-[1.15rem] italic leading-[1.4] text-white/90">
               A Just, Lean, and Living Earth for All.
             </p>
-            <span aria-hidden className="block h-px w-12 bg-white/25" />
             <p className="max-w-sm text-[12px] leading-[1.6] text-white/55">
               Regd. at G-1, BLDG 1, C Wing, Kamala Nagar, Chincholi Bunder Rd,
               Malad (W), Mumbai — 400 064
@@ -57,18 +56,15 @@ export function SiteFooter() {
 
           {/* Navigate */}
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-3">
-              <span className="inline-block h-px w-6 bg-white/40" />
-              <h4 className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/70">
-                navigate
-              </h4>
-            </div>
+            <h4 className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.28em] text-white/75">
+              navigate
+            </h4>
             <nav className="flex flex-col gap-2.5">
               {quickLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="group inline-flex w-fit items-center gap-2 text-[13px] text-white/60 transition-colors hover:text-white"
+                  className="group inline-flex w-fit items-center gap-2 text-[14px] text-white/75 transition-colors hover:text-white"
                 >
                   <span
                     aria-hidden
@@ -82,13 +78,10 @@ export function SiteFooter() {
 
           {/* Reach us */}
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-3">
-              <span className="inline-block h-px w-6 bg-white/40" />
-              <h4 className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/70">
-                reach us
-              </h4>
-            </div>
-            <div className="flex flex-col gap-4 text-[13px] text-white/65">
+            <h4 className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.28em] text-white/75">
+              reach us
+            </h4>
+            <div className="flex flex-col gap-4 text-[14px] text-white/75">
               <a
                 href="mailto:info@leanrevolution4earth.com"
                 className="group inline-flex items-start gap-3 transition-colors hover:text-white"
@@ -115,8 +108,7 @@ export function SiteFooter() {
           <span>
             © {year} Lean Revolution 4 Earth. All rights reserved.
           </span>
-          <span className="inline-flex items-center gap-2 font-[family-name:var(--font-display)] italic tracking-[0.24em] text-white/40">
-            <span aria-hidden className="inline-block h-px w-6 bg-white/25" />
+          <span className="font-[family-name:var(--font-display)] italic tracking-[0.24em] text-white/40">
             made with care for earth
           </span>
         </div>

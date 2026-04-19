@@ -17,16 +17,12 @@ export function MissionStrip() {
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center text-center">
         {/* Kicker */}
-        <div className="flex items-center gap-3">
-          <span className="inline-block h-px w-8 bg-foreground/25" />
-          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.34em] text-foreground/75">
-            our mission
-          </span>
-          <span className="inline-block h-px w-8 bg-foreground/25" />
-        </div>
+        <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-foreground/75">
+          our mission
+        </span>
 
         {/* Manifesto text */}
-        <p className="mt-6 text-balance font-[family-name:var(--font-display)] text-[clamp(0.95rem,1.55vw,1.125rem)] font-normal leading-[1.6] tracking-[-0.003em] text-foreground/85 md:mt-7">
+        <p className="mt-6 text-balance font-[family-name:var(--font-display)] text-[clamp(1rem,1.7vw,1.2rem)] font-normal leading-[1.6] tracking-[-0.003em] text-foreground/90 md:mt-7">
           By combining{" "}
           <em className="whitespace-nowrap italic">Lean philosophy</em> with{" "}
           <em className="whitespace-nowrap italic">environmental stewardship</em>

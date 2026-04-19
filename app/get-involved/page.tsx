@@ -1,15 +1,18 @@
 import type { Metadata } from "next"
 import { Heart, Mail, MapPin } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
 
 export const metadata: Metadata = {
-  title: "Get Involved | Lean Revolution 4 Earth",
+  title: "Get Involved",
   description: "Support LR4E through donations or get in touch with our team. Every action counts.",
+  alternates: { canonical: "/get-involved" },
 }
 
 export default function GetInvolvedPage() {
   return (
     <>
+      <BreadcrumbJsonLd trail={[{ name: "Get Involved", path: "/get-involved" }]} />
       {/* Page header */}
       <section 
         className="px-6 py-20 text-center"

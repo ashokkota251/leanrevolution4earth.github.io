@@ -34,26 +34,16 @@ export function InitiativesPreview() {
       className="relative px-6 py-24 md:py-28"
       style={{ backgroundColor: "#fafbfc" }}
     >
-      {/* Fading top hairline */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/15 to-transparent"
-      />
-
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
-          <div className="flex items-center gap-3">
-            <span className="inline-block h-px w-8 bg-foreground/25" />
-            <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.34em] text-foreground/75">
-              on the ground
-            </span>
-            <span className="inline-block h-px w-8 bg-foreground/25" />
-          </div>
+          <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-foreground/75">
+            on the ground
+          </span>
           <h2 className="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-foreground">
-            Our <em className="font-normal italic">Initiatives</em>
+            Our Initiatives
           </h2>
-          <p className="mx-auto mt-5 max-w-lg text-[0.95rem] leading-relaxed text-foreground/70">
+          <p className="mx-auto mt-5 max-w-lg text-[1rem] leading-relaxed text-foreground/70">
             Three flagship projects driving real-world impact on the ground.
           </p>
         </div>
@@ -68,7 +58,7 @@ export function InitiativesPreview() {
               >
                 {/* Top row: roman index + arrow */}
                 <div className="flex items-start justify-between">
-                  <span className="font-[family-name:var(--font-display)] text-[13px] italic tracking-[0.24em] text-foreground/50">
+                  <span className="font-[family-name:var(--font-display)] text-[13px] italic tracking-[0.24em] text-foreground/55">
                     project {item.index}
                   </span>
                   <ArrowUpRight
@@ -83,28 +73,22 @@ export function InitiativesPreview() {
                 </h3>
 
                 {/* Hindi sub-line (reserves space even when empty for row alignment) */}
-                <p className="mt-1.5 min-h-[1.35rem] font-[family-name:var(--font-display)] text-[0.9rem] italic text-foreground/55">
+                <p className="mt-1.5 min-h-[1.35rem] text-[0.95rem] text-foreground/60">
                   {item.hindi || "\u00A0"}
                 </p>
 
-                {/* Hairline divider that extends on hover */}
-                <span
-                  aria-hidden
-                  className="mt-6 block h-px w-10 bg-foreground/30 transition-all duration-500 group-hover:w-20 group-hover:bg-foreground/70"
-                />
-
                 {/* Description */}
-                <p className="mt-6 flex-1 text-[0.88rem] leading-relaxed text-foreground/70">
+                <p className="mt-7 flex-1 text-[0.95rem] leading-relaxed text-foreground/75">
                   {item.description}
                 </p>
 
                 {/* Know more CTA */}
-                <span className="mt-7 inline-flex items-center gap-2 text-[10.5px] font-medium uppercase tracking-[0.26em] text-foreground/70 transition-colors group-hover:text-foreground">
-                  <span
-                    aria-hidden
-                    className="inline-block h-px w-5 bg-foreground/40 transition-all duration-500 group-hover:w-9 group-hover:bg-foreground"
-                  />
+                <span className="mt-7 inline-flex items-center gap-2 self-start rounded-full border border-foreground/25 px-4 py-1.5 text-[12.5px] font-medium text-foreground transition-all duration-300 group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
                   Know more
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    strokeWidth={2}
+                  />
                 </span>
               </Link>
             </li>
@@ -115,15 +99,11 @@ export function InitiativesPreview() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/initiatives"
-            className="group inline-flex items-center gap-3 text-[13px] font-medium text-foreground/75 transition-colors hover:text-foreground"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-foreground/25 px-6 py-3 text-[14px] font-medium text-foreground transition-all duration-300 hover:border-foreground hover:bg-foreground hover:text-background"
           >
-            <span
-              aria-hidden
-              className="inline-block h-px w-6 bg-foreground/40 transition-all duration-300 group-hover:w-10 group-hover:bg-foreground"
-            />
             <span>View all initiatives</span>
             <ArrowUpRight
-              className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               strokeWidth={2}
             />
           </Link>

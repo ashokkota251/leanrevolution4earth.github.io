@@ -1,5 +1,14 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Sprout, Waves, Lightbulb, Megaphone } from "lucide-react"
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
+
+export const metadata: Metadata = {
+  title: "Our Pillars",
+  description:
+    "The four pillars guiding Lean Revolution 4 Earth — green transitions, nature & communities, climate consciousness, and lean advocacy.",
+  alternates: { canonical: "/pillars" },
+}
 
 const pillars = [
   {
@@ -53,6 +62,7 @@ const pillars = [
 export default function PillarsPage() {
   return (
     <>
+      <BreadcrumbJsonLd trail={[{ name: "Pillars", path: "/pillars" }]} />
       {/* Page header */}
       <section 
         className="px-6 py-20 text-center"
