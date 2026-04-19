@@ -18,9 +18,9 @@ const fraunces = Fraunces({
 })
 
 const brand = SITE_NAME
-const defaultTitle = 'Lean Revolution 4 Earth — Climate Justice in Action'
+const defaultTitle = 'Lean Revolution 4 Earth — Climate Justice NGO in India'
 const description =
-  'A Just, Lean, and Living Earth for All. Advancing climate justice through community-led action, clean energy, and afforestation. Join the movement.'
+  "India's climate justice NGO advancing community-led action, clean energy, afforestation, and circular economy solutions. Join the movement for a greener Earth."
 const siteUrl = SITE_URL
 const ogImage = '/og/og-home.jpg'
 
@@ -36,13 +36,35 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   keywords: [
+    'climate action organisation India',
+    'climate justice NGO India',
+    'sustainability consulting India',
+    'climate justice initiatives',
+    'environmental policy advocacy India',
+    'sustainable development organisation',
+    'climate change solutions India',
+    'regenerative development initiatives',
+    'ESG advisory India',
+    'climate resilience programs',
+    'sustainable systems transformation',
+    'beat plastic pollution',
+    'climate change',
+    'climate mitigation',
     'climate justice',
+    'mangrove restoration',
+    'community-based climate action',
+    'circular economy solutions India',
+    'nature-based solutions India',
+    'just transition frameworks',
+    'climate governance and policy',
+    'grassroots sustainability initiatives',
+    'climate education and awareness programs',
+    'environmental impact consulting',
+    'sustainable livelihoods India',
+    'low-carbon development strategies',
     'lean philosophy',
-    'environmental stewardship',
-    'clean energy',
     'afforestation',
-    'community-led action',
-    'NGO India',
+    'clean energy India',
     'Lean Revolution 4 Earth',
     'LR4E',
   ],

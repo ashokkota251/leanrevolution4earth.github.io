@@ -11,7 +11,7 @@ import climateAdvocacy from "@/public/images/pillars/climate-advocacy.jpg"
 export const metadata: Metadata = {
   title: "Our 4 Pillars",
   description:
-    "Four action-oriented pillars guiding Lean Revolution 4 Earth — green transitions, nature & communities, climate consciousness, and climate advocacy.",
+    "Four pillars driving climate justice across India — green transitions, nature-based solutions, climate consciousness, and community-led advocacy.",
   alternates: { canonical: "/pillars/" },
 }
 

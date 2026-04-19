@@ -9,7 +9,7 @@ import supportUsImage from "@/public/images/get-involved/support-us.jpg"
 export const metadata: Metadata = {
   title: "Get Involved",
   description:
-    "Support Lean Revolution 4 Earth through donations, partnership, or direct contact — every action counts.",
+    "Donate or partner with Lean Revolution 4 Earth — India's climate justice NGO. Support community-led action, clean energy, afforestation, and circular solutions.",
   alternates: { canonical: "/get-involved/" },
 }
 

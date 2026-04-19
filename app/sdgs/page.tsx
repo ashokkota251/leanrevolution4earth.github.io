@@ -8,7 +8,7 @@ import { sdgConfig } from "@/components/sdg-badge"
 export const metadata: Metadata = {
   title: "SDG Alignment",
   description:
-    "How Lean Revolution 4 Earth's work aligns with the UN Sustainable Development Goals — a consolidated view across all goals and projects.",
+    "How Lean Revolution 4 Earth's climate work in India aligns with the UN Sustainable Development Goals — a consolidated view across 13 goals.",
   alternates: { canonical: "/sdgs/" },
 }
 

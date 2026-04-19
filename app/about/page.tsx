@@ -9,7 +9,7 @@ import pragatiShirke from "@/public/images/about/team/pragati-shirke.jpg"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Our story, our mission, and the people behind Lean Revolution 4 Earth — a climate-justice movement for a leaner, fairer, and greener Earth.",
+    "Story, mission, and team behind Lean Revolution 4 Earth — India's climate justice NGO building inclusive, community-led solutions to the climate crisis.",
   alternates: { canonical: "/about/" },
 }
 

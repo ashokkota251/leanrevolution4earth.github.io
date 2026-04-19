@@ -11,7 +11,7 @@ import bankOfWaste from "@/public/images/initiatives/bank-of-waste.jpg"
 export const metadata: Metadata = {
   title: "Our Initiatives",
   description:
-    "Three flagship projects driving real-world climate impact — Project Navya Urja, Project Saahas Taru, and The Bank of Waste.",
+    "Three climate projects across India — decentralised clean energy, community-led afforestation, and youth-led circular waste systems to beat plastic pollution.",
   alternates: { canonical: "/initiatives/" },
 }
 
