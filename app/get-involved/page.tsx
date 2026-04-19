@@ -185,31 +185,6 @@ export default function GetInvolvedPage() {
 
           </div>
         </div>
-
-        {/* Donation card — full chapter width */}
-        <div className="mx-auto mt-16 max-w-3xl md:mt-20">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-baseline gap-3">
-              <span
-                aria-hidden
-                className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]"
-              >
-                ways to give
-              </span>
-              <span aria-hidden className="h-px w-8 bg-[#193d00]/45" />
-            </div>
-            <h3 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.6vw,2rem)] font-light leading-[1.1] tracking-[-0.012em] text-foreground">
-              Donate <em className="font-normal italic text-[#193d00]">directly</em> to our account
-            </h3>
-            <p className="mx-auto mt-3 max-w-lg text-[0.95rem] leading-relaxed text-foreground/70">
-              Online gateways are coming soon. For now, you can make a direct bank transfer — every rupee goes straight to the work.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <DonationCard />
-          </div>
-        </div>
         </div>
       </section>
 
@@ -317,6 +292,33 @@ export default function GetInvolvedPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6 — Donation card: navy accent, final brand moment */}
+      <section className="relative px-6 py-16 md:py-20" style={{ backgroundColor: "#ffffff" }}>
+        <div className="mx-auto max-w-2xl">
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-baseline gap-3">
+              <span
+                aria-hidden
+                className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#0e1d5e]"
+              >
+                ways to give
+              </span>
+              <span aria-hidden className="h-px w-8 bg-[#0e1d5e]/45" />
+            </div>
+            <h3 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.6vw,2rem)] font-light leading-[1.1] tracking-[-0.012em] text-foreground">
+              Donate <em className="font-normal italic text-[#0e1d5e]">directly</em> to our account
+            </h3>
+            <p className="mx-auto mt-3 max-w-lg text-[0.95rem] leading-relaxed text-foreground/70">
+              Online gateways are coming soon. For now, a direct bank transfer sends every rupee straight to the work.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <DonationCard />
           </div>
         </div>
       </section>
