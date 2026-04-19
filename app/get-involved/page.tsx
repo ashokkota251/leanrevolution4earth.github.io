@@ -296,29 +296,94 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      {/* 6 — Donation card: navy accent, final brand moment */}
-      <section className="relative px-6 py-16 md:py-20" style={{ backgroundColor: "#ffffff" }}>
-        <div className="mx-auto max-w-2xl">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-baseline gap-3">
-              <span
-                aria-hidden
-                className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#0e1d5e]"
-              >
-                ways to give
-              </span>
-              <span aria-hidden className="h-px w-8 bg-[#0e1d5e]/45" />
-            </div>
-            <h3 className="mt-5 font-[family-name:var(--font-display)] text-[clamp(1.5rem,2.6vw,2rem)] font-light leading-[1.1] tracking-[-0.012em] text-foreground">
-              Donate <em className="font-normal italic text-[#0e1d5e]">directly</em> to our account
-            </h3>
-            <p className="mx-auto mt-3 max-w-lg text-[0.95rem] leading-relaxed text-foreground/70">
-              Online gateways are coming soon. For now, a direct bank transfer sends every rupee straight to the work.
-            </p>
-          </div>
+      {/* 6 — Donation: full-bleed navy band with editorial invitation + receipt card */}
+      <section
+        className="relative overflow-hidden px-6 py-20 text-white md:py-24"
+        style={{ backgroundColor: "#0e1d5e" }}
+      >
+        {/* Cobalt bloom at the top */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_0%,rgba(88,110,220,0.3)_0%,transparent_65%)]"
+        />
+        {/* Deep-navy sink at the bottom */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_45%_at_50%_100%,rgba(6,13,46,0.6)_0%,transparent_70%)]"
+        />
+        {/* Grain */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay"
+          style={{ backgroundImage: GRAIN_URL }}
+        />
+        {/* Fading white hairlines top + bottom */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+        />
 
-          <div className="mt-10">
-            <DonationCard />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="grid items-start gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+            {/* Left: editorial invitation */}
+            <div className="flex flex-col gap-6">
+              <div className="flex items-baseline gap-3">
+                <span
+                  aria-hidden
+                  className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/75"
+                >
+                  ways to give
+                </span>
+                <span aria-hidden className="h-px w-10 bg-white/35" />
+              </div>
+
+              <h2 className="font-[family-name:var(--font-display)] text-[clamp(1.875rem,3.75vw,2.75rem)] font-light leading-[1.08] tracking-[-0.015em] text-white">
+                Every rupee,{" "}
+                <em className="font-normal italic">
+                  straight to the work.
+                </em>
+              </h2>
+
+              <p className="text-[1rem] leading-relaxed text-white/80">
+                Online payment gateways are coming soon. For now, we&apos;re accepting donations via direct bank transfer — so every contribution lands in our account without a cut.
+              </p>
+
+              <ul className="mt-2 flex flex-col gap-3 border-l border-white/15 pl-5">
+                {[
+                  "Solar panels in energy-poor villages",
+                  "Saplings in restored forests and mangroves",
+                  "Clean-campus programs led by youth",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[0.95rem] leading-snug text-white/85">
+                    <span
+                      aria-hidden
+                      className="mt-[0.55rem] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-white/55"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-2 text-[0.875rem] leading-relaxed text-white/65">
+                After transferring, share a screenshot with{" "}
+                <a
+                  href="mailto:info@leanrevolution4earth.com"
+                  className="font-medium text-white underline underline-offset-4 decoration-white/35 transition-colors hover:decoration-white"
+                >
+                  info@leanrevolution4earth.com
+                </a>{" "}
+                — we&apos;ll send a thank-you and an official receipt.
+              </p>
+            </div>
+
+            {/* Right: cream receipt card resting on the navy field */}
+            <div className="lg:pl-4 lg:pt-2">
+              <DonationCard />
+            </div>
           </div>
         </div>
       </section>
