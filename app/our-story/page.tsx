@@ -4,7 +4,6 @@ import { Trash2, Target, RefreshCw, Zap } from "lucide-react"
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-jsonld"
 import { CtaSection } from "@/components/home/cta-section"
 import aboutHero from "@/public/images/about/about-hero.jpg"
-import pragatiShirke from "@/public/images/about/team/pragati-shirke.jpg"
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -24,7 +23,7 @@ type Member = {
   id: string
   name: string
   role: string
-  image: typeof pragatiShirke | null
+  image: string | null
   alt?: string
   bio: string[]
 }
@@ -34,7 +33,7 @@ const team: Member[] = [
     id: "pragati-shirke",
     name: "Pragati Shirke",
     role: "Co-Founder & Director",
-    image: pragatiShirke,
+    image: "/images/about/team/pragati-shirke.jpg",
     alt: "Pragati Shirke tending plants in a mountain garden",
     bio: [
       "I didn't begin my journey in the fields. I began in courtrooms. Trained as a lawyer, I was taught to seek justice within defined frameworks. But over time, I found myself drawn beyond those four courtroom walls — towards the people and places where justice isn't argued.",
@@ -44,13 +43,14 @@ const team: Member[] = [
     ],
   },
   {
-    id: "rohan-kotwalkar",
-    name: "Rohan Kotwalkar",
-    role: "Co-Founder & Director",
-    image: null,
+    id: "rohan-r-kotwalkar",
+    name: "Rohan R. Kotwalkar",
+    role: "Co-Founder | Marine Professional | Environmental Strategist",
+    image: "/images/about/team/rohan-r-kotwalkar.jpg",
+    alt: "Rohan R. Kotwalkar standing on a beach with the ocean in the background",
     bio: [
-      "Co-directs Lean Revolution 4 Earth alongside Pragati — guiding strategy, partnerships, and the long-view direction of the work.",
-      "Full bio coming soon.",
+      "From navigating oceans to climate solutions, Rohan brings over two decades of global marine leadership, operational excellence, and large-scale environmental planning to LR4E.",
+      "A Master Mariner, Dynamic Positioning Professional, and pilot, he contributed to planning the world’s largest beach cleanup in world history, demonstrating the power of coordinated action at scale.",
     ],
   },
   {
@@ -299,7 +299,6 @@ export default function AboutPage() {
                           alt={member.alt ?? member.name}
                           fill
                           sizes="(min-width: 1024px) 300px, (min-width: 768px) 260px, 100vw"
-                          placeholder="blur"
                           className="object-cover"
                         />
                       ) : (
