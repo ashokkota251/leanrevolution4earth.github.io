@@ -24,7 +24,8 @@ export async function POST(req: Request) {
 
   const { amount, frequency, donorName, donorEmail } = parsed.data
   const orderId = `LR4E-${Date.now()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`
-  const redirectUrl = `${SITE_URL}/donate/success?ref=${orderId}`
+  const firstName = donorName.trim().split(/\s+/)[0]
+  const redirectUrl = `${SITE_URL}/donate/success?ref=${orderId}&name=${encodeURIComponent(firstName)}`
 
   try {
     const paymentUrl = await createPaymentSession({
