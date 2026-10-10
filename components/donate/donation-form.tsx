@@ -20,7 +20,7 @@ function bigDisplay(n: number): string {
 }
 
 export function DonationForm() {
-  const [frequency, setFrequency]       = useState<"onetime" | "monthly">("onetime")
+  const frequency: "onetime" = "onetime"
   const [selectedPreset, setSelected]   = useState<number>(2500)
   const [customAmt, setCustomAmt]       = useState("")
   const [name, setName]                 = useState("")
@@ -62,25 +62,6 @@ export function DonationForm() {
 
       {/* ═══════ LEFT — AMOUNT EXPERIENCE ═══════ */}
       <div>
-        {/* Frequency pill tabs — editorial underline style */}
-        <div className="mb-10 flex gap-6">
-          {(["onetime", "monthly"] as const).map((f) => (
-            <button
-              key={f}
-              type="button"
-              onClick={() => setFrequency(f)}
-              className={`relative pb-2 text-[12px] font-semibold uppercase tracking-[0.3em] transition-colors ${
-                frequency === f ? "text-[#193d00]" : "text-[#193d00]/35 hover:text-[#193d00]/60"
-              }`}
-            >
-              {f === "onetime" ? "One-time" : "Monthly"}
-              {frequency === f && (
-                <span className="absolute -bottom-0 left-0 right-0 h-[2px] bg-[#193d00]" />
-              )}
-            </button>
-          ))}
-        </div>
-
         {/* MASSIVE amount display */}
         <div className="relative">
           <div
@@ -152,9 +133,9 @@ export function DonationForm() {
 
         {/* Section heading */}
         <div className="mb-8 flex items-center gap-4">
-          <span className="font-[family-name:var(--font-display)] text-[0.95rem] italic text-[#193d00]/50">02 —</span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#193d00]">
-            Your details
+          <span className="h-px w-10 bg-[#193d00]/25" />
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]/55">
+            your details
           </span>
           <span className="h-px flex-1 bg-[#193d00]/15" />
         </div>
@@ -206,7 +187,7 @@ export function DonationForm() {
           <div className="relative z-10 flex items-center justify-between gap-4">
             <div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7ab648]">
-                {frequency === "monthly" ? "Monthly" : "One-time"} donation
+                One-time donation
               </div>
               <div className="mt-1 font-[family-name:var(--font-display)] text-[1.6rem] font-light italic leading-none tracking-[-0.015em] text-white">
                 {loading ? "Connecting…" : `Donate ${bigDisplay(rawAmount)}`}

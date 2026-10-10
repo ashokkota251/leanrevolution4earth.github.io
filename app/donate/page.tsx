@@ -17,10 +17,10 @@ const GRAIN =
 
 const MARQUEE = ["PLANT", "POWER", "PROTECT", "RESTORE", "GIVE", "ACT", "REVIVE"]
 const CAMPAIGNS = [
-  { tag: "01", name: "Project Saahas Taru",  sub: "Community afforestation",      pct: 78, raised: "₹7.8L", goal: "₹10L" },
-  { tag: "02", name: "Project Navya Urja",   sub: "Rural clean energy access",    pct: 45, raised: "₹2.25L", goal: "₹5L" },
-  { tag: "03", name: "Mangrove Restoration", sub: "Coastal ecosystem repair",     pct: 62, raised: "₹3.1L",  goal: "₹5L" },
-  { tag: "04", name: "Bank of Waste",        sub: "Zero-plastic campus programme",pct: 34, raised: "₹1.7L",  goal: "₹5L" },
+  { name: "Project Saahas Taru",  sub: "Community afforestation",      pct: 78, raised: "₹7.8L", goal: "₹10L" },
+  { name: "Project Navya Urja",   sub: "Rural clean energy access",    pct: 45, raised: "₹2.25L", goal: "₹5L" },
+  { name: "Mangrove Restoration", sub: "Coastal ecosystem repair",     pct: 62, raised: "₹3.1L",  goal: "₹5L" },
+  { name: "Bank of Waste",        sub: "Zero-plastic campus programme",pct: 34, raised: "₹1.7L",  goal: "₹5L" },
 ]
 
 const STAMPS = [
@@ -145,9 +145,9 @@ export default function DonatePage() {
 
         {/* Section eyebrow */}
         <div className="relative mx-auto mb-16 flex max-w-7xl items-center gap-4">
-          <span className="font-[family-name:var(--font-display)] text-[1rem] italic text-[#193d00]/50">01 —</span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.38em] text-[#193d00]">
-            Choose your impact
+          <span className="h-px w-10 bg-[#193d00]/25" />
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]/55">
+            choose your impact
           </span>
           <span className="h-px flex-1 bg-[#193d00]/15" />
         </div>
@@ -164,28 +164,25 @@ export default function DonatePage() {
         <div aria-hidden className="lr4e-grain-mask" />
 
         <div className="mx-auto mb-10 flex max-w-7xl items-center gap-4 px-6 md:px-12">
-          <span className="font-[family-name:var(--font-display)] text-[1rem] italic text-white/40">02 —</span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.38em] text-[#7ab648]">
-            Active campaigns
+          <span className="h-px w-10 bg-white/20" />
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/55">
+            active campaigns
           </span>
           <span className="h-px flex-1 bg-white/15" />
           <span className="hidden text-[11px] text-white/40 md:inline">← scroll →</span>
         </div>
 
         <div className="hide-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 md:px-12">
-          {CAMPAIGNS.map(({ tag, name, sub, pct, raised, goal }) => (
+          {CAMPAIGNS.map(({ name, sub, pct, raised, goal }) => (
             <article
-              key={tag}
+              key={name}
               className="group relative shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:border-[#7ab648]/40 hover:bg-white/[0.07]"
               style={{ width: "min(360px, 85vw)" }}
             >
-              {/* Tag number */}
-              <div className="mb-7 flex items-start justify-between">
+              {/* Progress % */}
+              <div className="mb-7 flex items-start justify-end">
                 <span className="font-[family-name:var(--font-display)] text-[2.5rem] font-light italic leading-none tracking-[-0.03em] text-[#7ab648]">
-                  {tag}
-                </span>
-                <span className="font-[family-name:var(--font-display)] text-[1.4rem] italic text-white/60">
-                  {pct}<span className="text-white/35">%</span>
+                  {pct}<span className="text-[1.4rem] text-white/40">%</span>
                 </span>
               </div>
 
@@ -226,48 +223,15 @@ export default function DonatePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          5 ─ GIANT MANIFESTO QUOTE
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-[#faf8f0] px-6 py-28 md:py-36">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(25,61,0,0.06)_0%,transparent_60%)]" />
-
-        <div className="relative mx-auto max-w-6xl">
-          <div className="mb-10 flex items-center gap-4">
-            <span className="font-[family-name:var(--font-display)] text-[1rem] italic text-[#193d00]/40">03 —</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.38em] text-[#193d00]">
-              Manifesto
-            </span>
-            <span className="h-px flex-1 bg-[#193d00]/15" />
-          </div>
-
-          <blockquote className="font-[family-name:var(--font-display)] font-light leading-[0.98] tracking-[-0.035em] text-[#0d2400]"
-                      style={{ fontSize: "clamp(2.5rem,8vw,7rem)" }}>
-            <span className="block">Climate justice isn&apos;t</span>
-            <span className="relative inline-block italic">
-              <s className="text-[#0d2400]/25 decoration-[#193d00] decoration-2">charity</s>
-            </span>
-            <span className="block italic text-[#193d00]"> — it&apos;s accountability.</span>
-          </blockquote>
-
-          <div className="mt-10 flex items-center gap-4">
-            <span className="h-px w-14 bg-[#193d00]/30" />
-            <span className="text-[12px] font-medium uppercase tracking-[0.28em] text-[#193d00]/60">
-              Lean Revolution 4 Earth
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          6 ─ TRUST STAMPS (rotated stickers)
+          5 ─ TRUST STAMPS (rotated stickers)
       ══════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-[#193d00] px-6 py-24 text-white">
         <div aria-hidden className="lr4e-grain-mask" />
 
         <div className="mx-auto mb-12 flex max-w-7xl items-center gap-4">
-          <span className="font-[family-name:var(--font-display)] text-[1rem] italic text-white/40">04 —</span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.38em] text-[#7ab648]">
-            Fully compliant · Fully transparent
+          <span className="h-px w-10 bg-white/20" />
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/55">
+            fully compliant · fully transparent
           </span>
           <span className="h-px flex-1 bg-white/20" />
         </div>
@@ -305,9 +269,9 @@ export default function DonatePage() {
 
         <div className="relative mx-auto max-w-2xl">
           <div className="mb-10 flex items-center gap-4">
-            <span className="font-[family-name:var(--font-display)] text-[1rem] italic text-white/40">05 —</span>
-            <span className="text-[11px] font-semibold uppercase tracking-[0.38em] text-[#7ab648]">
-              Alternative
+            <span className="h-px w-10 bg-white/15" />
+            <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/55">
+              alternative
             </span>
             <span className="h-px flex-1 bg-white/15" />
           </div>
