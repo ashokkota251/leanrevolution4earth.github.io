@@ -1,15 +1,27 @@
 import { z } from "zod"
 import { createPaymentSession } from "@/lib/zoho-payments"
 import { SITE_URL } from "@/lib/site"
+import { rateLimit, clientIp } from "@/lib/rate-limit"
 
 const schema = z.object({
-  amount: z.number().int().min(1).max(10_00_000), // max ₹10L
+  amount: z.number().int().min(100).max(10_00_000), // ₹100 min, ₹10L max
   frequency: z.enum(["onetime", "monthly"]),
   donorName: z.string().min(2).max(100).trim(),
   donorEmail: z.string().email().trim(),
 })
 
 export async function POST(req: Request) {
+  // Rate limit: 5 donation-link creations per IP per minute.
+  // Keeps a bad actor from spamming our Zoho API quota or polluting the merchant dashboard.
+  const ip = clientIp(req)
+  const rl = rateLimit(`donate:${ip}`, { limit: 5, windowMs: 60_000 })
+  if (!rl.ok) {
+    return Response.json(
+      { error: "Too many requests. Please wait a moment and try again." },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } }
+    )
+  }
+
   let body: unknown
   try {
     body = await req.json()
@@ -41,9 +53,16 @@ export async function POST(req: Request) {
     console.error("[donate] Zoho payment session error:", err)
     const detail      = err instanceof Error ? err.message : String(err)
     const showDetail  = process.env.NODE_ENV !== "production" || process.env.ZOHO_SANDBOX === "true"
+
+    // Friendly message when the server is missing credentials — tells ops exactly what to set.
+    const isConfig = /^Missing /.test(detail)
+    const userMessage = isConfig
+      ? "Payment service is temporarily unavailable. Please try again shortly or use bank transfer."
+      : "Payment initiation failed. Please try again."
+
     return Response.json(
-      { error: "Payment initiation failed. Please try again.", ...(showDetail && { detail }) },
-      { status: 502 }
+      { error: userMessage, ...(showDetail && { detail }) },
+      { status: isConfig ? 503 : 502 }
     )
   }
 }

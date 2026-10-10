@@ -1,5 +1,22 @@
 import { verifyWebhookSignature } from "@/lib/zoho-signature"
 
+// In-memory idempotency guard. Zoho may redeliver the same event (network blip, 5xx retry).
+// Stores up to 500 recent event_ids for 10 minutes.
+// ponytail: single-instance only; swap for Vercel KV / Redis when scaling horizontally.
+const processedEvents = new Map<string, number>()
+const EVENT_TTL_MS = 10 * 60 * 1000
+const MAX_EVENTS = 500
+function markProcessed(id: string): boolean {
+  const now = Date.now()
+  // sweep expired
+  if (processedEvents.size > MAX_EVENTS) {
+    for (const [k, t] of processedEvents) if (now - t > EVENT_TTL_MS) processedEvents.delete(k)
+  }
+  if (processedEvents.has(id)) return false
+  processedEvents.set(id, now)
+  return true
+}
+
 // Zoho Payments webhook endpoint — authoritative source of payment events.
 // Configure in Zoho Payments dashboard: Developers → Webhooks → Create.
 //   URL:  https://<your-domain>/api/webhooks/zoho
@@ -54,6 +71,14 @@ export async function POST(req: Request) {
   const payment     = e.data?.payment
   const paymentLink = e.data?.payment_link
   const refund      = e.data?.refund
+
+  // Idempotency: Zoho retries on 5xx and may redeliver on timeouts. Treat same event_id as processed.
+  const eventKey = e.event_id ?? JSON.stringify(payment ?? paymentLink ?? refund ?? {})
+  const fresh    = markProcessed(String(eventKey))
+  if (!fresh) {
+    console.log("[zoho-webhook] duplicate event ignored:", { event_id: e.event_id, type })
+    return new Response("ok (duplicate)", { status: 200 })
+  }
 
   // ponytail: structured console log for now — swap for DB insert when you have one
   console.log("[zoho-webhook]", {
