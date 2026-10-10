@@ -39,17 +39,25 @@ export function verifyWebhookSignature(opts: {
     return { ok: false, reason: "timestamp outside allowed window" }
   }
 
-  // Compute expected signature
-  const expected = createHmac("sha256", signingKey)
-    .update(`${t}.${rawBody}`)
-    .digest("hex")
+  // Zoho's docs don't specify whether the signing_key is used as a raw string
+  // or as hex-decoded bytes. Compute both and accept whichever matches.
+  // Common pitfall: 192-char hex keys suggest hex-decoding is correct.
+  const payload = `${t}.${rawBody}`
+  const expectedAsString = createHmac("sha256", signingKey).update(payload).digest("hex")
+  const expectedAsHex = /^[0-9a-fA-F]+$/.test(signingKey)
+    ? createHmac("sha256", Buffer.from(signingKey, "hex")).update(payload).digest("hex")
+    : null
 
   const sigBuf = safeBuffer(v)
-  const expBuf = safeBuffer(expected)
-  if (!sigBuf || !expBuf || sigBuf.length !== expBuf.length) {
-    return { ok: false, reason: "signature length mismatch" }
+  if (!sigBuf) return { ok: false, reason: "signature not hex" }
+
+  for (const candidate of [expectedAsString, expectedAsHex]) {
+    if (!candidate) continue
+    const expBuf = safeBuffer(candidate)
+    if (!expBuf || expBuf.length !== sigBuf.length) continue
+    if (timingSafeEqual(sigBuf, expBuf)) return { ok: true }
   }
-  return timingSafeEqual(sigBuf, expBuf) ? { ok: true } : { ok: false, reason: "signature mismatch" }
+  return { ok: false, reason: "signature mismatch" }
 }
 
 function safeBuffer(hex: string): Buffer | null {
