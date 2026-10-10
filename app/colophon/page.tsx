@@ -50,14 +50,19 @@ export default function ColophonPage() {
 
             {/* Right column: text */}
             <div className="flex flex-col justify-center">
-              {/* Headline */}
-              <h1 className="font-[family-name:var(--font-display)] font-light leading-[1.02] tracking-[-0.025em] text-[#0d2400]"
-                  style={{ fontSize: "clamp(2.25rem,5.5vw,3.5rem)" }}>
-                Website by{" "}
-                <em className="italic text-[#193d00]">Ashok Kota.</em>
+              {/* Small kicker — magazine byline style */}
+              <p className="font-[family-name:var(--font-display)] text-[10px] font-semibold uppercase tracking-[0.32em] text-[#193d00]/55">
+                Designed &amp; built by
+              </p>
+
+              {/* MASSIVE name — the hero element */}
+              <h1 className="mt-4 font-[family-name:var(--font-display)] font-light italic leading-[0.95] tracking-[-0.035em] text-[#193d00]"
+                  style={{ fontSize: "clamp(2.75rem,7vw,4.5rem)" }}>
+                Ashok Kota.
               </h1>
 
-              <p className="mt-4 text-[14px] italic text-[#0d2400]/55">
+              {/* Role — clean subtitle */}
+              <p className="mt-5 text-[13px] text-[#0d2400]/60">
                 Traveller &nbsp;·&nbsp; AI-First Engineer &nbsp;·&nbsp; Development Lead
               </p>
 
