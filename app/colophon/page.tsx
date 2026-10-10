@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 const SOCIAL = [
   { label: "LinkedIn",  href: "https://www.linkedin.com/in/ashokkotaa/" },
   { label: "Instagram", href: "https://www.instagram.com/theashokkota/" },
-  { label: "Email",     href: "mailto:ashok.kota251@gmail.com" },
 ]
 
 export default function ColophonPage() {
