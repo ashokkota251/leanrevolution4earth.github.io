@@ -131,6 +131,17 @@ export function SiteFooter() {
             made with care for earth
           </span>
         </div>
+
+        {/* Website credit — subtle, editorial */}
+        <div className="mt-4 flex items-center justify-center">
+          <Link
+            href="/colophon"
+            className="group inline-flex items-center gap-2 font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.08em] text-white/30 transition-colors hover:text-white/70"
+          >
+            <span>Website crafted by Ashok Kota</span>
+            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">↗</span>
+          </Link>
+        </div>
       </div>
     </footer>
   )
