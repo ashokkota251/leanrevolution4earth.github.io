@@ -132,12 +132,10 @@ export function DonationForm() {
       <form onSubmit={submit} noValidate className="flex flex-col lg:sticky lg:top-24 lg:self-start">
 
         {/* Section heading */}
-        <div className="mb-8 flex items-center gap-4">
-          <span className="h-px w-10 bg-[#193d00]/25" />
-          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]/55">
+        <div className="mb-8 text-center lg:text-left">
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.32em] text-[#193d00]/55">
             your details
           </span>
-          <span className="h-px flex-1 bg-[#193d00]/15" />
         </div>
 
         {/* Name — underline editorial input */}

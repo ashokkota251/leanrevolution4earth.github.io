@@ -16,12 +16,6 @@ const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")"
 
 const MARQUEE = ["PLANT", "POWER", "PROTECT", "RESTORE", "GIVE", "ACT", "REVIVE"]
-const CAMPAIGNS = [
-  { name: "Project Saahas Taru",  sub: "Community afforestation",      pct: 78, raised: "₹7.8L", goal: "₹10L" },
-  { name: "Project Navya Urja",   sub: "Rural clean energy access",    pct: 45, raised: "₹2.25L", goal: "₹5L" },
-  { name: "Mangrove Restoration", sub: "Coastal ecosystem repair",     pct: 62, raised: "₹3.1L",  goal: "₹5L" },
-  { name: "Bank of Waste",        sub: "Zero-plastic campus programme",pct: 34, raised: "₹1.7L",  goal: "₹5L" },
-]
 
 const STAMPS = [
   { label: "SECTION\n8 NGO",      rot: -8 },
@@ -144,12 +138,10 @@ export default function DonatePage() {
         <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-28 h-[380px] w-[380px] rounded-[42%_58%_47%_53%/55%_42%_58%_45%] bg-[rgba(122,182,72,0.1)]" />
 
         {/* Section eyebrow */}
-        <div className="relative mx-auto mb-16 flex max-w-7xl items-center gap-4">
-          <span className="h-px w-10 bg-[#193d00]/25" />
-          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]/55">
+        <div className="relative mx-auto mb-14 max-w-7xl text-center">
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.32em] text-[#193d00]/55">
             choose your impact
           </span>
-          <span className="h-px flex-1 bg-[#193d00]/15" />
         </div>
 
         <div className="relative mx-auto max-w-7xl">
@@ -158,82 +150,15 @@ export default function DonatePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          4 ─ CAMPAIGNS (horizontal scroll)
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-[#0e1d5e] py-24 text-white md:py-28">
-        <div aria-hidden className="lr4e-grain-mask" />
-
-        <div className="mx-auto mb-10 flex max-w-7xl items-center gap-4 px-6 md:px-12">
-          <span className="h-px w-10 bg-white/20" />
-          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/55">
-            active campaigns
-          </span>
-          <span className="h-px flex-1 bg-white/15" />
-          <span className="hidden text-[11px] text-white/40 md:inline">← scroll →</span>
-        </div>
-
-        <div className="hide-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 md:px-12">
-          {CAMPAIGNS.map(({ name, sub, pct, raised, goal }) => (
-            <article
-              key={name}
-              className="group relative shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition-all duration-300 hover:border-[#7ab648]/40 hover:bg-white/[0.07]"
-              style={{ width: "min(360px, 85vw)" }}
-            >
-              {/* Progress % */}
-              <div className="mb-7 flex items-start justify-end">
-                <span className="font-[family-name:var(--font-display)] text-[2.5rem] font-light italic leading-none tracking-[-0.03em] text-[#7ab648]">
-                  {pct}<span className="text-[1.4rem] text-white/40">%</span>
-                </span>
-              </div>
-
-              {/* Name */}
-              <h3 className="font-[family-name:var(--font-display)] text-[1.4rem] font-light leading-tight tracking-[-0.01em] text-white">
-                {name}
-              </h3>
-              <p className="mt-1.5 text-[12.5px] text-white/50">{sub}</p>
-
-              {/* Progress */}
-              <div className="mt-8">
-                <div className="h-1 overflow-hidden rounded-full bg-white/10">
-                  <div className="h-full rounded-full bg-[#7ab648]"
-                       style={{ width: `${pct}%`, animation: "lr4e-fill-bar 1.6s cubic-bezier(0.22,0.61,0.36,1) both" }} />
-                </div>
-                <div className="mt-2 flex justify-between text-[11px] text-white/50">
-                  <span>{raised} raised</span>
-                  <span>of {goal}</span>
-                </div>
-              </div>
-
-              {/* Hover indicator */}
-              <div className="mt-6 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7ab648] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                Fund this →
-              </div>
-            </article>
-          ))}
-
-          {/* End card */}
-          <div className="shrink-0 snap-start" style={{ width: "min(240px, 70vw)" }}>
-            <div className="flex h-full flex-col items-start justify-end rounded-2xl border border-dashed border-white/15 p-7">
-              <span className="font-[family-name:var(--font-display)] text-[1.75rem] font-light italic leading-tight tracking-[-0.02em] text-white/55">
-                more<br/>soon.
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          5 ─ TRUST STAMPS (rotated stickers)
+          4 ─ TRUST STAMPS (rotated stickers)
       ══════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-[#193d00] px-6 py-24 text-white">
         <div aria-hidden className="lr4e-grain-mask" />
 
-        <div className="mx-auto mb-12 flex max-w-7xl items-center gap-4">
-          <span className="h-px w-10 bg-white/20" />
-          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/55">
+        <div className="mx-auto mb-12 max-w-7xl text-center">
+          <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.32em] text-white/55">
             fully compliant · fully transparent
           </span>
-          <span className="h-px flex-1 bg-white/20" />
         </div>
 
         <div className="relative mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-6 py-10 md:gap-10">
@@ -268,12 +193,10 @@ export default function DonatePage() {
         <div aria-hidden className="lr4e-grain-mask" />
 
         <div className="relative mx-auto max-w-2xl">
-          <div className="mb-10 flex items-center gap-4">
-            <span className="h-px w-10 bg-white/15" />
-            <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-white/55">
+          <div className="mb-8 text-center">
+            <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.32em] text-white/55">
               alternative
             </span>
-            <span className="h-px flex-1 bg-white/15" />
           </div>
 
           <h2 className="mb-3 font-[family-name:var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-light leading-[1.02] tracking-[-0.025em] text-white">

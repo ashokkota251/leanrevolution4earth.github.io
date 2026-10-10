@@ -108,12 +108,10 @@ function SucceededView({ name, amount, ref }: { name: string; amount?: string; r
 
           <div className="relative mx-auto max-w-4xl">
             {/* Section eyebrow */}
-            <div className="mb-10 flex items-center justify-center gap-4 lr4e-rise">
-              <span className="h-px w-10 bg-[#193d00]/25" />
-              <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.3em] text-[#193d00]/55">
+            <div className="mb-10 text-center lr4e-rise">
+              <span className="font-[family-name:var(--font-display)] text-[11px] italic tracking-[0.32em] text-[#193d00]/55">
                 what happens next
               </span>
-              <span className="h-px w-10 bg-[#193d00]/25" />
             </div>
 
             {/* Timeline — three editorial steps */}
