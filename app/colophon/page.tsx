@@ -27,17 +27,17 @@ export default function ColophonPage() {
             colophon
           </p>
 
-          {/* Editorial two-column: portrait left, text right */}
-          <div className="mt-14 grid gap-12 md:grid-cols-[1fr_1.1fr] md:gap-16 lg:gap-20">
+          {/* Editorial two-column: smaller portrait left, text right */}
+          <div className="mt-14 grid gap-10 md:grid-cols-[280px_1fr] md:gap-14 lg:gap-20">
 
-            {/* Full portrait — 3:4, uncropped, soft shadow */}
-            <div className="relative mx-auto w-full max-w-md md:max-w-none">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-[#e5e8dd] shadow-[0_32px_80px_-24px_rgba(4,12,0,0.35)]">
+            {/* Portrait — compact 3:4, uncropped, soft shadow */}
+            <div className="relative mx-auto w-full max-w-[260px] md:mx-0 md:max-w-none">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-[#e5e8dd] shadow-[0_20px_48px_-18px_rgba(4,12,0,0.3)]">
                 <Image
                   src="/images/colophon/ashok.jpg"
                   alt="Ashok Kota"
                   fill
-                  sizes="(min-width: 768px) 45vw, 100vw"
+                  sizes="280px"
                   className="object-cover"
                   priority
                 />
