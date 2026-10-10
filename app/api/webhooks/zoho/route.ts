@@ -18,8 +18,21 @@ export async function POST(req: Request) {
   })
 
   if (!result.ok) {
-    console.warn("[zoho-webhook] signature verification failed:", result.reason)
-    return new Response("Unauthorized", { status: 401 })
+    const headerPreview = signatureHeader ? signatureHeader.slice(0, 40) + "…" : "(none)"
+    const keyLen = (process.env.ZOHO_WEBHOOK_SIGNING_KEY ?? "").length
+    const bodyLen = rawBody.length
+    console.warn("[zoho-webhook] signature verification failed:", {
+      reason: result.reason,
+      headerPreview,
+      signingKeyLength: keyLen,
+      bodyLength: bodyLen,
+    })
+    // Expose reason in response so it shows up in Zoho's delivery log for debugging.
+    // Safe — only reveals which validation step failed, no secrets.
+    return Response.json(
+      { error: "Unauthorized", reason: result.reason, signing_key_configured: keyLen > 0, body_length: bodyLen },
+      { status: 401 }
+    )
   }
 
   // Signature verified — safe to parse and process
