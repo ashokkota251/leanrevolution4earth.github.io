@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { CookieBanner } from '@/components/cookie-banner'
 import { SITE_NAME, SITE_URL } from '@/lib/site'
 
 const GA_ID = 'G-T4TK350EKJ'
@@ -171,17 +172,31 @@ export default function RootLayout({
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <CookieBanner />
 
         {isProd && (
           <>
+            {/* Consent defaults to DENIED. CookieBanner updates once the user chooses. */}
+            <Script id="gtag-consent-default" strategy="beforeInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('consent', 'default', {
+                  analytics_storage:   'denied',
+                  ad_storage:          'denied',
+                  ad_user_data:        'denied',
+                  ad_personalization:  'denied',
+                  wait_for_update:     500
+                });
+              `}
+            </Script>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               strategy="lazyOnload"
             />
             <Script id="gtag-init" strategy="lazyOnload">
               {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}');
               `}

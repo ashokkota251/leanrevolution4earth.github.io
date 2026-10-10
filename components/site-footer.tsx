@@ -122,8 +122,23 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Legal links */}
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/10 pt-6 text-[11px] text-white/55 md:text-[12px]">
+          <Link href="/privacy" className="hover:text-white hover:underline underline-offset-4">
+            Privacy Policy
+          </Link>
+          <span aria-hidden className="text-white/25">·</span>
+          <Link href="/terms" className="hover:text-white hover:underline underline-offset-4">
+            Terms &amp; Conditions
+          </Link>
+          <span aria-hidden className="text-white/25">·</span>
+          <Link href="/terms#refunds" className="hover:text-white hover:underline underline-offset-4">
+            Refund Policy
+          </Link>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-[11px] text-white/45 md:flex-row md:text-[12px]">
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-[11px] text-white/45 md:flex-row md:text-[12px]">
           <span>
             © {year} Lean Revolution 4 Earth. All rights reserved.
           </span>
