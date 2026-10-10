@@ -53,26 +53,6 @@ const team: Member[] = [
       "A Master Mariner, Dynamic Positioning Professional, and pilot, he contributed to planning the world’s largest beach cleanup in world history, demonstrating the power of coordinated action at scale.",
     ],
   },
-  {
-    id: "dinesh-awari",
-    name: "Dinesh Awari",
-    role: "Admin Head",
-    image: null,
-    bio: [
-      "Keeps the administrative and operational backbone of LR4E running day-to-day — the quiet engine behind the programs.",
-      "Full bio coming soon.",
-    ],
-  },
-  {
-    id: "sandesh-shirke",
-    name: "Sandesh Shirke",
-    role: "Animal Welfare",
-    image: null,
-    bio: [
-      "Leads LR4E's animal welfare work — ensuring compassion for every living being stays at the heart of our climate-justice practice.",
-      "Full bio coming soon.",
-    ],
-  },
 ]
 
 const GRAIN_URL =
