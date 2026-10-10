@@ -63,7 +63,7 @@ export default function ColophonPage() {
 
               {/* Role — clean subtitle */}
               <p className="mt-5 text-[13px] text-[#0d2400]/60">
-                Traveller &nbsp;·&nbsp; AI-First Engineer &nbsp;·&nbsp; Development Lead
+                Traveller &nbsp;·&nbsp; AI-First Engineer
               </p>
 
               {/* Thin divider */}
