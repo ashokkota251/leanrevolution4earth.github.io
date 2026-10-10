@@ -38,10 +38,10 @@ export async function POST(req: Request) {
     return Response.json({ paymentUrl })
   } catch (err) {
     console.error("[donate] Zoho payment session error:", err)
-    const detail = err instanceof Error ? err.message : String(err)
-    const isDev  = process.env.NODE_ENV !== "production"
+    const detail      = err instanceof Error ? err.message : String(err)
+    const showDetail  = process.env.NODE_ENV !== "production" || process.env.ZOHO_SANDBOX === "true"
     return Response.json(
-      { error: "Payment initiation failed. Please try again.", ...(isDev && { detail }) },
+      { error: "Payment initiation failed. Please try again.", ...(showDetail && { detail }) },
       { status: 502 }
     )
   }
