@@ -62,12 +62,12 @@ export function DonationForm() {
 
       {/* ═══════ LEFT — AMOUNT EXPERIENCE ═══════ */}
       <div>
-        {/* MASSIVE amount display */}
+        {/* MASSIVE amount display — mobile-friendly minimum */}
         <div className="relative">
           <div
             key={rawAmount}
             className="font-[family-name:var(--font-display)] italic leading-[0.85] tracking-[-0.045em] text-[#193d00] lr4e-blurin"
-            style={{ fontSize: "clamp(5rem,16vw,13rem)", fontWeight: 300 }}
+            style={{ fontSize: "clamp(3.5rem,16vw,13rem)", fontWeight: 300 }}
           >
             {bigDisplay(rawAmount)}
           </div>
@@ -80,7 +80,7 @@ export function DonationForm() {
           </p>
         </div>
 
-        {/* Chip grid — bold tactile */}
+        {/* Chip grid — bold tactile, impact tooltip on hover */}
         <div className="mt-10 grid grid-cols-3 gap-2.5 sm:grid-cols-6 lg:grid-cols-3">
           {PRESETS.map((p) => {
             const active = !isCustom && selectedPreset === p.v
@@ -89,7 +89,8 @@ export function DonationForm() {
                 key={p.v}
                 type="button"
                 onClick={() => pick(p.v)}
-                className={`group relative overflow-hidden rounded-xl border-2 px-4 py-4 text-[14px] font-semibold transition-all duration-200 ${
+                aria-label={`${p.label}: ${p.impact}`}
+                className={`group relative rounded-xl border-2 px-4 py-4 text-[14px] font-semibold transition-all duration-200 ${
                   active
                     ? "border-[#193d00] bg-[#193d00] text-white shadow-[0_12px_32px_-10px_rgba(25,61,0,0.6)]"
                     : "border-[#193d00]/15 bg-white text-[#0d2400] hover:-translate-y-0.5 hover:border-[#193d00]/50 hover:shadow-[0_8px_24px_-10px_rgba(4,12,0,0.25)]"
@@ -99,6 +100,14 @@ export function DonationForm() {
                 {active && (
                   <span aria-hidden className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-[#7ab648]" />
                 )}
+                {/* Hover tooltip — impact text */}
+                <span
+                  role="tooltip"
+                  className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-max max-w-[220px] -translate-x-1/2 translate-y-1 rounded-lg bg-[#0d2400] px-3 py-2 text-[11px] font-medium leading-snug text-[#faf8f0] opacity-0 shadow-lg transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
+                >
+                  {p.impact}
+                  <span aria-hidden className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 bg-[#0d2400]" />
+                </span>
               </button>
             )
           })}

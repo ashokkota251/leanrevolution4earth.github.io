@@ -136,6 +136,21 @@ export default function DonatePage() {
         {/* Organic blobs */}
         <div aria-hidden className="pointer-events-none absolute -right-32 top-16 h-[560px] w-[560px] rounded-[58%_42%_55%_45%/48%_55%_45%_52%] bg-[rgba(14,29,94,0.045)]" />
         <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-28 h-[380px] w-[380px] rounded-[42%_58%_47%_53%/55%_42%_58%_45%] bg-[rgba(122,182,72,0.1)]" />
+        {/* Subtle paper texture — matches other sections */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-multiply"
+          style={{ backgroundImage: GRAIN }}
+        />
+
+        {/* Decorative serif ornament — editorial divider between hero marquee and form */}
+        <div className="relative mx-auto mb-10 flex max-w-xs items-center justify-center gap-4 opacity-60">
+          <span aria-hidden className="h-px flex-1 bg-[#193d00]/25" />
+          <span aria-hidden className="font-[family-name:var(--font-display)] text-[1.1rem] italic text-[#193d00]">
+            ❧
+          </span>
+          <span aria-hidden className="h-px flex-1 bg-[#193d00]/25" />
+        </div>
 
         {/* Section eyebrow */}
         <div className="relative mx-auto mb-14 max-w-7xl text-center">
@@ -208,6 +223,15 @@ export default function DonatePage() {
             PAN for the 80G certificate.
           </p>
           <DonationCard />
+
+          {/* Made with care — warm closing line */}
+          <div className="mt-16 flex items-center justify-center gap-3 text-center">
+            <span aria-hidden className="h-px w-6 bg-[#7ab648]/40" />
+            <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.08em] text-white/40">
+              Made with care in Mumbai
+            </span>
+            <span aria-hidden className="h-px w-6 bg-[#7ab648]/40" />
+          </div>
         </div>
       </section>
     </>

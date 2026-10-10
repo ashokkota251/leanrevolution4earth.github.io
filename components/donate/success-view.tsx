@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import { AlertTriangle, Clock } from "lucide-react"
 import saahasTaru from "@/public/images/initiatives/project-saahas-taru.jpg"
+import projectThumb from "@/public/images/initiatives/project-navya-urja.jpg"
 
 /* ──────────────────── Main view ──────────────────── */
 export function SuccessView() {
@@ -36,12 +37,22 @@ function SucceededView({ name, amount, ref }: { name: string; amount?: string; r
         @keyframes lr4e-fade      { from { opacity: 0 } to { opacity: 1 } }
         @keyframes lr4e-confetti  { 0% { transform: translateY(-120vh) rotate(0deg); opacity: 1 } 100% { transform: translateY(120vh) rotate(720deg); opacity: 0 } }
         @keyframes lr4e-pulse     { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.08); opacity: .85 } }
+        @keyframes lr4e-stem      { 0% { stroke-dashoffset: 60 } 100% { stroke-dashoffset: 0 } }
+        @keyframes lr4e-leaf      { 0% { transform: scale(0) rotate(var(--rot,0)); opacity: 0 } 60% { opacity: 1 } 100% { transform: scale(1) rotate(var(--rot,0)); opacity: 1 } }
+        @keyframes lr4e-sway      { 0%,100% { transform: rotate(-1.5deg) } 50% { transform: rotate(1.5deg) } }
         .lr4e-rise      { animation: lr4e-rise 1.1s cubic-bezier(0.22,0.61,0.36,1) both }
         .lr4e-fade      { animation: lr4e-fade 1.5s ease-out both }
         .lr4e-pulse     { animation: lr4e-pulse 2.4s ease-in-out infinite }
         .lr4e-confetti-piece { position: absolute; top: -24px; animation: lr4e-confetti linear infinite; pointer-events: none }
+        .lr4e-sprout-group  { animation: lr4e-sway 5s ease-in-out infinite; transform-origin: bottom center }
+        .lr4e-sprout-stem   { stroke-dasharray: 60; stroke-dashoffset: 60; animation: lr4e-stem 1.4s ease-out .3s forwards }
+        .lr4e-sprout-leaf   { transform-origin: center; animation: lr4e-leaf .9s cubic-bezier(0.34,1.56,0.64,1) both }
         @media (prefers-reduced-motion: reduce) {
-          .lr4e-rise, .lr4e-fade, .lr4e-pulse, .lr4e-confetti-piece { animation: none !important; opacity: 1 !important; transform: none !important }
+          .lr4e-rise, .lr4e-fade, .lr4e-pulse, .lr4e-confetti-piece,
+          .lr4e-sprout-group, .lr4e-sprout-stem, .lr4e-sprout-leaf {
+            animation: none !important; opacity: 1 !important; transform: none !important;
+            stroke-dashoffset: 0 !important;
+          }
         }
       `}</style>
 
@@ -55,10 +66,44 @@ function SucceededView({ name, amount, ref }: { name: string; amount?: string; r
           <Confetti />
 
           <div className="relative z-10 mx-auto max-w-4xl text-center">
-            {/* Checkmark badge */}
-            <div className="mx-auto mb-10 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#7ab648]/50 bg-[#7ab648]/15 lr4e-pulse">
-              <svg viewBox="0 0 24 24" className="h-12 w-12 text-[#7ab648]" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
+            {/* Growing sprout — SVG with staggered leaf unfurl */}
+            <div className="mx-auto mb-10 flex h-28 w-28 items-end justify-center">
+              <svg
+                viewBox="0 0 80 100"
+                className="lr4e-sprout-group h-full w-full"
+                fill="none"
+                aria-label="A sprout growing"
+              >
+                {/* Soil */}
+                <ellipse cx="40" cy="94" rx="22" ry="3" fill="#193d00" opacity="0.3" />
+                {/* Stem */}
+                <path
+                  className="lr4e-sprout-stem"
+                  d="M40 92 Q 40 72 40 48"
+                  stroke="#7ab648"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                {/* Left leaf */}
+                <path
+                  className="lr4e-sprout-leaf"
+                  style={{ animationDelay: "1.3s", ["--rot" as string]: "-15deg" } as React.CSSProperties}
+                  d="M40 62 C 20 60 14 46 22 36 C 32 42 40 50 40 62 Z"
+                  fill="#7ab648"
+                />
+                {/* Right leaf */}
+                <path
+                  className="lr4e-sprout-leaf"
+                  style={{ animationDelay: "1.5s", ["--rot" as string]: "15deg" } as React.CSSProperties}
+                  d="M40 54 C 60 52 66 38 58 28 C 48 34 40 42 40 54 Z"
+                  fill="#7ab648"
+                />
+                {/* Top bud */}
+                <circle
+                  className="lr4e-sprout-leaf"
+                  style={{ animationDelay: "1.8s" } as React.CSSProperties}
+                  cx="40" cy="42" r="4" fill="#faf8f0" stroke="#7ab648" strokeWidth="2"
+                />
               </svg>
             </div>
 
@@ -147,9 +192,9 @@ function SucceededView({ name, amount, ref }: { name: string; amount?: string; r
                   className="relative grid gap-5 md:grid-cols-[auto_1fr] md:gap-10 lr4e-rise"
                   style={{ animationDelay: `${delay}ms` }}
                 >
-                  {/* Numbered badge */}
+                  {/* Numbered badge — subtle glow + layered shadow for depth */}
                   <div className="flex md:block">
-                    <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#193d00] bg-[#faf8f0] font-[family-name:var(--font-display)] text-[13px] font-light italic text-[#193d00]">
+                    <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#193d00] bg-[#faf8f0] font-[family-name:var(--font-display)] text-[13px] font-light italic text-[#193d00] shadow-[0_8px_24px_-10px_rgba(25,61,0,0.35),0_0_0_6px_rgba(122,182,72,0.08)]">
                       {num}
                     </div>
                   </div>
@@ -172,6 +217,17 @@ function SucceededView({ name, amount, ref }: { name: string; amount?: string; r
           </div>
         </section>
 
+        {/* Gentle breathing room — ornament divider between "what's next" and outro */}
+        <section className="relative bg-[#faf8f0] py-10">
+          <div className="mx-auto flex max-w-xs items-center justify-center gap-4 opacity-50">
+            <span aria-hidden className="h-px flex-1 bg-[#193d00]/20" />
+            <span aria-hidden className="font-[family-name:var(--font-display)] text-[1rem] italic text-[#193d00]">
+              ❧
+            </span>
+            <span aria-hidden className="h-px flex-1 bg-[#193d00]/20" />
+          </div>
+        </section>
+
         {/* ════════ ACT 3 — THE OUTRO ════════ */}
         <section className="relative overflow-hidden bg-[#0d2400] px-6 py-24 text-[#faf8f0]">
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(122,182,72,0.14)_0%,transparent_65%)]" />
@@ -184,12 +240,22 @@ function SucceededView({ name, amount, ref }: { name: string; amount?: string; r
             </p>
 
             <div className="mt-14 flex flex-col items-center justify-center gap-6 sm:flex-row">
+              {/* See the work — enriched with circular project thumbnail inside */}
               <Link
                 href="/our-work"
-                className="group inline-flex items-center gap-3 rounded-full bg-[#7ab648] py-3.5 pl-6 pr-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-[#0d2400] transition-all duration-300 hover:bg-[#faf8f0]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#7ab648] py-2 pl-2 pr-5 text-[13px] font-semibold uppercase tracking-[0.22em] text-[#0d2400] transition-all duration-300 hover:bg-[#faf8f0]"
               >
-                See the work
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0d2400] text-[#7ab648] transition-transform duration-300 group-hover:rotate-45">↗</span>
+                <span className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-[#0d2400]/80">
+                  <Image
+                    src={projectThumb}
+                    alt=""
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                  />
+                </span>
+                <span>See the work</span>
+                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
               </Link>
 
               <Link
