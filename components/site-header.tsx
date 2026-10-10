@@ -69,7 +69,8 @@ const navigation: NavItem[] = [
       },
     ],
   },
-  { name: "Get Involved", href: "/get-involved", cta: true },
+  { name: "Get Involved", href: "/get-involved" },
+  { name: "Donate", href: "/donate", cta: true },
 ]
 
 export function SiteHeader() {
@@ -85,6 +86,7 @@ export function SiteHeader() {
     normalizedPath === "/our-pillars" ||
     normalizedPath === "/our-work" ||
     normalizedPath === "/get-involved" ||
+    normalizedPath === "/donate" ||
     normalizedPath === "/sdg-alignment"
   const closeTimer = useRef<number | null>(null)
 
@@ -473,11 +475,11 @@ export function SiteHeader() {
                 }}
               >
                 <Link
-                  href="/get-involved"
+                  href="/donate"
                   onClick={() => setMobileOpen(false)}
                   className="group flex items-center justify-between gap-3 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-[#193d00] transition-all duration-300 hover:bg-[#0e1d5e] hover:text-white"
                 >
-                  <span>Get Involved</span>
+                  <span>Donate</span>
                   <ArrowUpRight
                     className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     strokeWidth={2}

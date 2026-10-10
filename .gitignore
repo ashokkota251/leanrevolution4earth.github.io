@@ -19,3 +19,6 @@ image-originals/
 
 # Build artifacts
 *.tsbuildinfo
+
+# Brainstorming artifacts (local only)
+.superpowers/

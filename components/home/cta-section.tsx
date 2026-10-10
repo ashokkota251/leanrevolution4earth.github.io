@@ -59,7 +59,7 @@ export function CtaSection() {
         {/* CTAs */}
         <div className="mt-12 flex flex-col items-center gap-6 sm:flex-row sm:gap-8">
           <Link
-            href="/get-involved"
+            href="/donate"
             className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-3.5 text-[13px] font-medium text-[#193d00] transition-all duration-300 hover:bg-[#0e1d5e] hover:text-white"
           >
             <span>Donate Now</span>

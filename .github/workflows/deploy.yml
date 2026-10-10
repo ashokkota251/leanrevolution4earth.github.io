@@ -39,6 +39,8 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - run: yarn build
+        env:
+          NEXT_STATIC_EXPORT: "true"
 
       - name: Ensure .nojekyll exists
         run: touch out/.nojekyll
