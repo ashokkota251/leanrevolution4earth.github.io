@@ -58,7 +58,7 @@ export default function ColophonPage() {
               </h1>
 
               <p className="mt-4 text-[14px] italic text-[#0d2400]/55">
-                AI-First Engineer & Development Lead
+                Traveller &nbsp;·&nbsp; AI-First Engineer &nbsp;·&nbsp; Development Lead
               </p>
 
               {/* Thin divider */}
@@ -78,6 +78,11 @@ export default function ColophonPage() {
                 <p>
                   The harder, more interesting work is making AI a real
                   teammate in how products get designed, built, and shipped.
+                </p>
+                <p>
+                  When I&apos;m not shipping code, I&apos;m usually somewhere
+                  new. Travel is how I keep my sense of the world honest — and
+                  the inputs to my work varied.
                 </p>
               </div>
 
