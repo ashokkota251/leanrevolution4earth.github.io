@@ -19,6 +19,10 @@ function bigDisplay(n: number): string {
   return `₹${n}`
 }
 
+// Online payments stay off until the domain is served by Vercel and Zoho keys are live.
+// Turn on by setting NEXT_PUBLIC_DONATIONS_ENABLED=true in Vercel and redeploying.
+const DONATIONS_ENABLED = process.env.NEXT_PUBLIC_DONATIONS_ENABLED === "true"
+
 export function DonationForm() {
   const frequency: "onetime" = "onetime"
   const [selectedPreset, setSelected]   = useState<number>(2500)
@@ -38,6 +42,7 @@ export function DonationForm() {
   async function submit(e: React.FormEvent) {
     e.preventDefault()
     setError("")
+    if (!DONATIONS_ENABLED) return
     if (!rawAmount || rawAmount < 1)               { setError("Please select or enter an amount."); return }
     if (name.trim().length < 2)                    { setError("Please enter your name."); return }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError("Please enter a valid email address."); return }
@@ -188,19 +193,20 @@ export function DonationForm() {
         {/* MASSIVE CTA */}
         <button
           type="submit"
-          disabled={loading}
-          className="group relative mt-4 overflow-hidden rounded-full bg-[#193d00] px-7 py-5 text-left transition-all duration-300 hover:bg-[#0d2400] disabled:opacity-60"
+          disabled={loading || !DONATIONS_ENABLED}
+          aria-disabled={!DONATIONS_ENABLED}
+          className="group relative mt-4 overflow-hidden rounded-full bg-[#193d00] px-7 py-5 text-left transition-all duration-300 hover:bg-[#0d2400] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-[#193d00]"
         >
           <div className="relative z-10 flex items-center justify-between gap-4">
             <div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7ab648]">
-                One-time donation
+                {DONATIONS_ENABLED ? "One-time donation" : "Online donations opening soon"}
               </div>
               <div className="mt-1 font-[family-name:var(--font-display)] text-[1.6rem] font-light italic leading-none tracking-[-0.015em] text-white">
-                {loading ? "Connecting…" : `Donate ${bigDisplay(rawAmount)}`}
+                {!DONATIONS_ENABLED ? "Use bank transfer below" : loading ? "Connecting…" : `Donate ${bigDisplay(rawAmount)}`}
               </div>
             </div>
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#7ab648] text-[#0d2400] transition-transform duration-300 group-hover:translate-x-1">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#7ab648] text-[#0d2400] transition-transform duration-300 group-enabled:group-hover:translate-x-1">
               {loading ? (
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0d2400]/25 border-t-[#0d2400]" />
               ) : (
@@ -209,7 +215,7 @@ export function DonationForm() {
             </div>
           </div>
           {/* Hover sheen */}
-          <span aria-hidden className="pointer-events-none absolute inset-0 translate-x-full bg-gradient-to-r from-transparent via-white/8 to-transparent transition-transform duration-700 group-hover:-translate-x-full" />
+          <span aria-hidden className="pointer-events-none absolute inset-0 translate-x-full bg-gradient-to-r from-transparent via-white/8 to-transparent transition-transform duration-700 group-enabled:group-hover:-translate-x-full" />
         </button>
 
         {/* Trust row inline */}
