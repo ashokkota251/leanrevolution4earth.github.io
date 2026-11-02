@@ -44,6 +44,11 @@ async function getAccessToken(): Promise<string> {
   }
 
   const data = await res.json()
+  // Zoho returns HTTP 200 even when the OAuth exchange failed — the error lives in the body.
+  // Catch it here so we don't cache `undefined` and surface a confusing 401 on the next API call.
+  if (data.error || !data.access_token) {
+    throw new Error(`Zoho token refresh rejected: ${data.error ?? "no access_token"} — ${JSON.stringify(data)}`)
+  }
   _tokenCache = {
     token: data.access_token,
     // shave 60s off expiry to avoid edge-case races

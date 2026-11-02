@@ -9,19 +9,22 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms/" },
 }
 
-const UPDATED = "10 October 2026"
+const UPDATED = "27 October 2026"
 
 const SECTIONS = [
-  { id: "acceptance",   title: "Acceptance of terms" },
-  { id: "about",        title: "About LR4E" },
-  { id: "donations",    title: "Donations" },
-  { id: "refunds",      title: "Refunds and cancellations" },
-  { id: "80g",          title: "80G tax deduction" },
+  { id: "acceptance",   title: "Introduction and acceptance" },
+  { id: "about",        title: "About the Foundation" },
+  { id: "donations",    title: "Donation processing" },
+  { id: "refunds",      title: "Refunds, cancellations and erroneous payments" },
+  { id: "how-to-refund",title: "How to request a refund" },
+  { id: "80g",          title: "Tax deductions and Section 80G" },
+  { id: "foreign",      title: "Foreign contributions" },
+  { id: "privacy",      title: "Privacy and personal information" },
   { id: "ip",           title: "Intellectual property" },
   { id: "prohibited",   title: "Prohibited use" },
   { id: "disclaimers",  title: "Disclaimers" },
   { id: "liability",    title: "Limitation of liability" },
-  { id: "law",          title: "Governing law" },
+  { id: "law",          title: "Governing law and jurisdiction" },
   { id: "changes",      title: "Changes to these terms" },
   { id: "contact",      title: "Contact" },
 ]
@@ -56,9 +59,11 @@ export default function TermsPage() {
           </div>
 
           <p className="text-[15px] leading-[1.8] text-[#0d2400]/80">
-            These Terms &amp; Conditions govern your use of leanrevolution4earth.com
-            and the donations you make through it. By accessing the site or
-            donating, you agree to be bound by them.
+            These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern access to
+            and use of the website operated by Lean Revolution 4 Earth
+            Foundation (&ldquo;LR4E&rdquo;, &ldquo;Foundation&rdquo;,
+            &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;), including
+            its content, donation facilities and related online features.
           </p>
 
           {/* TOC */}
@@ -82,94 +87,186 @@ export default function TermsPage() {
 
           <div className="mt-14 space-y-14 text-[15px] leading-[1.8] text-[#0d2400]/80">
 
-            <Section id="acceptance" title="Acceptance of terms" num="01">
+            <Section id="acceptance" title="Introduction and acceptance" num="01">
               <p>
-                By accessing or using this website, you confirm that you are at
-                least 18 years old and that you accept these terms along with
-                our{" "}
+                By accessing or using the website at{" "}
+                <a href="https://leanrevolution4earth.com" className="text-[#193d00] underline underline-offset-2">
+                  https://leanrevolution4earth.com
+                </a>
+                , or by making a donation through it, you agree to these Terms,
+                together with our{" "}
                 <Link href="/privacy" className="text-[#193d00] underline underline-offset-2">
                   Privacy Policy
-                </Link>
-                . If you do not agree, please do not use the site or make a
-                donation.
+                </Link>{" "}
+                and any applicable donation or refund policy referenced on the
+                website.
               </p>
             </Section>
 
-            <Section id="about" title="About LR4E" num="02">
+            <Section id="about" title="About the Foundation" num="02">
               <p>
-                Lean Revolution 4 Earth Foundation is a non-profit company
-                registered under Section 8 of the Companies Act, 2013 (CIN
-                U94990MH2025NPL453396), with its registered office at Mumbai,
-                India.
+                Lean Revolution 4 Earth Foundation is a not-for-profit company
+                incorporated under Section 8 of the Companies Act, 2013, India.
               </p>
-            </Section>
-
-            <Section id="donations" title="Donations" num="03">
               <ul className="list-disc space-y-2 pl-6">
                 <li>
-                  All donations are voluntary and are used by LR4E to further
-                  its charitable objects — climate action, afforestation,
-                  clean-energy access, and allied community programmes.
+                  <strong>Corporate Identity Number (CIN):</strong>{" "}
+                  U94990MH2025NPL453396
                 </li>
                 <li>
-                  Donations are collected through Zoho Payments, our payment
-                  partner. By donating, you agree to{" "}
-                  <a href="https://www.zoho.com/payments/terms.html" target="_blank" rel="noopener noreferrer" className="text-[#193d00] underline underline-offset-2">
-                    Zoho Payments&apos; terms ↗
+                  <strong>Registered office:</strong> G-1, Building 1, C Wing,
+                  Kamala Nagar, Chincholi Bunder Road, Malad (West), Mumbai
+                  – 400064, Maharashtra, India.
+                </li>
+                <li>
+                  <strong>Email:</strong>{" "}
+                  <a href="mailto:info@leanrevolution4earth.com" className="text-[#193d00] underline underline-offset-2">
+                    info@leanrevolution4earth.com
                   </a>
-                  .
-                </li>
-                <li>
-                  Donations are made in Indian Rupees (INR). The minimum
-                  donation accepted online is ₹100.
-                </li>
-                <li>
-                  LR4E does not provide any goods or services in exchange for a
-                  donation. A donation is not a payment for services rendered.
                 </li>
               </ul>
+              <p>
+                The Foundation works towards its charitable and environmental
+                objectives, including climate action, renewable energy access,
+                ecological restoration, afforestation, sustainable livelihoods,
+                waste reduction, community resilience, climate awareness and
+                related public-interest initiatives, subject to its
+                constitutional documents and applicable law.
+              </p>
             </Section>
 
-            <Section id="refunds" title="Refunds and cancellations" num="04">
+            <Section id="donations" title="Donation processing" num="03">
               <p>
-                <strong>Donations are generally non-refundable</strong>, as
-                funds are typically allocated to programme costs within hours
-                of receipt.
+                Online donations may be processed through Zoho Payments or
+                another payment service provider identified at checkout. By
+                proceeding with a transaction, you may also be subject to the
+                relevant payment provider&rsquo;s applicable terms, privacy
+                practices and security procedures.
               </p>
-              <p>Exceptions are considered in the following cases:</p>
+              <p>
+                Unless expressly stated otherwise at checkout, online donations
+                are accepted in Indian Rupees (INR), with a minimum online
+                donation amount of ₹100.
+              </p>
+              <p>
+                Donations are collected through Zoho Payments, our payment
+                partner. By donating, you agree to{" "}
+                <a href="https://www.zoho.com/payments/terms.html" target="_blank" rel="noopener noreferrer" className="text-[#193d00] underline underline-offset-2">
+                  Zoho Payments&apos; terms ↗
+                </a>
+                .
+              </p>
+              <p>
+                The Foundation will apply donations towards its charitable
+                objects, administrative and operational costs reasonably
+                associated with its activities, and other lawful purposes
+                consistent with its governing documents.
+              </p>
+              <p>
+                The Foundation may issue an electronic donation acknowledgement
+                or receipt after receiving and verifying a donation. Donors
+                should provide accurate information reasonably required for
+                payment reconciliation, recordkeeping, statutory reporting and
+                the issuance of any applicable tax documentation. An
+                acknowledgement of receipt is not, by itself, a representation
+                that the donation qualifies for a tax deduction.
+              </p>
+            </Section>
+
+            <Section id="refunds" title="Refunds, cancellations and erroneous payments" num="04">
+              <p>
+                Completed charitable donations are generally not refundable
+                merely because a donor subsequently changes their mind or
+                because the donor&rsquo;s preferred programme changes.
+              </p>
+              <p>
+                However, the Foundation will review genuine requests involving
+                duplicate transactions, technical errors, incorrect amounts,
+                unauthorised transactions or other circumstances warranting a
+                refund under applicable law or the Foundation&rsquo;s policies.
+              </p>
+              <p>
+                Nothing in these Terms removes any refund, reversal, chargeback
+                or other remedy available to a donor under applicable law or
+                the rules of the relevant payment provider.
+              </p>
+              <p>A donor may contact the Foundation to request a review where:</p>
               <ul className="list-disc space-y-2 pl-6">
+                <li>The same donation was charged more than once.</li>
                 <li>
-                  <strong>Duplicate payments</strong> — if you were charged
-                  twice for the same donation due to a technical error.
+                  A technical or interface error caused an incorrect amount to
+                  be charged.
                 </li>
                 <li>
-                  <strong>Incorrect amount</strong> — if you donated a
-                  materially higher amount than intended due to a user-interface
-                  or technical issue.
+                  A payment was debited but the donation was not successfully
+                  recorded.
                 </li>
                 <li>
-                  <strong>Unauthorised payments</strong> — if the donation was
-                  made without your authorisation.
+                  A refund is otherwise required by applicable law or an
+                  applicable payment-provider rule.
                 </li>
               </ul>
               <p>
-                Refund requests must be sent to{" "}
+                Each request will be assessed on its facts. The Foundation may
+                request reasonable supporting information to verify the
+                transaction and prevent fraud.
+              </p>
+            </Section>
+
+            <Section id="how-to-refund" title="How to request a refund" num="05">
+              <p>
+                Email{" "}
                 <a href="mailto:info@leanrevolution4earth.com" className="text-[#193d00] underline underline-offset-2">
                   info@leanrevolution4earth.com
-                </a>{" "}
-                within <strong>seven (7) days</strong> of the transaction,
-                along with the payment reference (ref ID shown on the thank-you
-                page or in your email receipt).
+                </a>
+                , preferably within <strong>seven (7) days</strong> after the
+                transaction, with the following information:
+              </p>
+              <ul className="list-disc space-y-2 pl-6">
+                <li>Date and amount of the transaction.</li>
+                <li>Payment reference or transaction ID.</li>
+                <li>
+                  Registered email address or other identifying information
+                  used for the donation.
+                </li>
+                <li>A brief explanation of the issue.</li>
+              </ul>
+              <p>
+                The seven-day period is a requested reporting period to
+                facilitate timely investigation; it does not extinguish any
+                statutory right or remedy that may remain available to the
+                donor.
               </p>
               <p>
-                Approved refunds are processed to the original payment method
-                within <strong>10 to 15 working days</strong>, subject to the
-                processing time of your bank. If an 80G certificate has already
-                been issued, we may ask you to acknowledge its revocation.
+                Please do not email complete card numbers, CVVs, passwords,
+                payment PINs or other sensitive payment credentials.
+              </p>
+              <p>
+                Where a refund is approved, the Foundation will ordinarily
+                initiate it through the original payment method, subject to
+                payment-provider procedures and applicable law.
+              </p>
+              <p>
+                The Foundation aims to initiate approved refunds within{" "}
+                <strong>ten (10) to fifteen (15) working days</strong> after
+                approval. The time taken for the funds to appear in the
+                donor&rsquo;s account may depend on the bank or payment
+                provider. If additional verification is necessary, the
+                Foundation will communicate the reason for any material delay
+                where reasonably practicable.
+              </p>
+              <p>
+                Donors who suspect an unauthorised transaction should promptly
+                notify their bank or payment provider and inform the
+                Foundation. The Foundation may cooperate with banks, payment
+                providers and relevant authorities to investigate disputed
+                transactions. Any applicable refund, reversal or chargeback
+                will be handled in accordance with the relevant procedures and
+                applicable law.
               </p>
             </Section>
 
-            <Section id="80g" title="80G tax deduction" num="05">
+            <Section id="80g" title="Tax deductions and Section 80G" num="06">
               <p>
                 LR4E is eligible for donations qualifying under Section 80G of
                 the Income Tax Act, 1961. 80G certificates are issued by email
@@ -181,9 +278,58 @@ export default function TermsPage() {
                 Deductibility depends on your personal tax situation. We do not
                 provide tax advice — please consult your tax advisor.
               </p>
+              <p>
+                A donation qualifies for a deduction under Section 80G of the
+                Income-tax Act, 1961, only where the Foundation holds a valid
+                and applicable approval under that provision, the donation
+                satisfies the relevant statutory conditions, and the donor
+                meets the applicable requirements.
+              </p>
             </Section>
 
-            <Section id="ip" title="Intellectual property" num="06">
+            <Section id="foreign" title="Foreign contributions" num="07">
+              <p>
+                Donors located outside India should contact the Foundation
+                before attempting to make a contribution.
+              </p>
+              <p>
+                The Foundation will accept foreign contributions only where it
+                is legally permitted and has satisfied the applicable
+                requirements, including the Foreign Contribution (Regulation)
+                Act, 2010 (FCRA), where applicable.
+              </p>
+              <p>
+                A payment in foreign currency or a donation initiated from
+                outside India will not be accepted merely because the
+                website&rsquo;s payment system permits the transaction.
+              </p>
+            </Section>
+
+            <Section id="privacy" title="Privacy and personal information" num="08">
+              <p>
+                The Foundation may collect and process personal information
+                submitted by users and donors for purposes such as processing
+                donations, issuing receipts, maintaining records, responding to
+                enquiries, meeting legal obligations and protecting against
+                fraud.
+              </p>
+              <p>
+                Personal information will be handled in accordance with the
+                Foundation&rsquo;s{" "}
+                <Link href="/privacy" className="text-[#193d00] underline underline-offset-2">
+                  Privacy Policy
+                </Link>{" "}
+                and applicable data protection law.
+              </p>
+              <p>
+                Where consent is required, the Foundation will seek it in the
+                manner prescribed by applicable law. The Foundation will not
+                treat acceptance of these Terms as a substitute for a separate
+                consent where separate consent is legally required.
+              </p>
+            </Section>
+
+            <Section id="ip" title="Intellectual property" num="09">
               <p>
                 All content on this website — text, images, logos, graphics,
                 and code — is the property of LR4E or its licensors and is
@@ -194,7 +340,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section id="prohibited" title="Prohibited use" num="07">
+            <Section id="prohibited" title="Prohibited use" num="10">
               <p>You agree not to:</p>
               <ul className="list-disc space-y-2 pl-6">
                 <li>Attempt to breach, probe, or disrupt the security of the site.</li>
@@ -205,7 +351,7 @@ export default function TermsPage() {
               </ul>
             </Section>
 
-            <Section id="disclaimers" title="Disclaimers" num="08">
+            <Section id="disclaimers" title="Disclaimers" num="11">
               <p>
                 The site is provided &quot;as is&quot; and &quot;as
                 available&quot;. We do not warrant that the site will always be
@@ -216,7 +362,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section id="liability" title="Limitation of liability" num="09">
+            <Section id="liability" title="Limitation of liability" num="12">
               <p>
                 To the maximum extent permitted by Indian law, LR4E and its
                 trustees, directors, employees, and volunteers shall not be
@@ -227,7 +373,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section id="law" title="Governing law and jurisdiction" num="10">
+            <Section id="law" title="Governing law and jurisdiction" num="13">
               <p>
                 These terms are governed by the laws of India. Any dispute
                 arising out of or in connection with these terms shall be
@@ -236,7 +382,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section id="changes" title="Changes to these terms" num="11">
+            <Section id="changes" title="Changes to these terms" num="14">
               <p>
                 We may update these terms from time to time. The updated version
                 takes effect from the date shown at the top of this page. If you
@@ -244,7 +390,7 @@ export default function TermsPage() {
               </p>
             </Section>
 
-            <Section id="contact" title="Contact" num="12">
+            <Section id="contact" title="Contact" num="15">
               <p>
                 Questions about these terms? Email us at{" "}
                 <a href="mailto:info@leanrevolution4earth.com" className="text-[#193d00] underline underline-offset-2">

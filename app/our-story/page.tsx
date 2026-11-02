@@ -323,6 +323,110 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* 5.5 — Advisory Partners: parchment pull-quote endorsement */}
+      <section
+        id="advisory-partners"
+        className="relative overflow-hidden px-6 py-24 md:py-28"
+        style={{ backgroundColor: "#f3ecdc" }}
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_30%,rgba(255,250,236,0.9)_0%,transparent_75%)]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-multiply"
+          style={{ backgroundImage: GRAIN_URL }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0e1d5e]/25 to-transparent"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#0e1d5e]/25 to-transparent"
+        />
+
+        <div className="relative mx-auto max-w-6xl">
+          <div className="flex flex-col items-center text-center">
+            <span className="font-[family-name:var(--font-display)] text-[12px] italic tracking-[0.3em] text-[#0e1d5e]">
+              advisory partners
+            </span>
+            <span aria-hidden className="mt-4 block h-px w-10 bg-[#0e1d5e]/40" />
+            <h2 className="mt-6 font-[family-name:var(--font-display)] text-[clamp(2rem,4.5vw,3.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-foreground">
+              Standing <em className="font-normal italic text-[#0e1d5e]">with us</em>.
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-[1rem] leading-relaxed text-foreground/70">
+              Trusted voices from business and civil society who champion our commitment to measurable, community-led climate action.
+            </p>
+          </div>
+
+          <article className="relative mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] md:gap-14 lg:gap-16">
+            {/* Partner card — logo on parchment slab */}
+            <figure className="relative flex md:items-start">
+              <div className="relative w-full max-w-[320px] mx-auto md:mx-0">
+                {/* Decorative frame corners */}
+                <span aria-hidden className="absolute -left-2 -top-2 h-5 w-5 border-l border-t border-[#0e1d5e]/50" />
+                <span aria-hidden className="absolute -right-2 -top-2 h-5 w-5 border-r border-t border-[#0e1d5e]/50" />
+                <span aria-hidden className="absolute -left-2 -bottom-2 h-5 w-5 border-l border-b border-[#0e1d5e]/50" />
+                <span aria-hidden className="absolute -right-2 -bottom-2 h-5 w-5 border-r border-b border-[#0e1d5e]/50" />
+
+                <div className="relative overflow-hidden rounded-lg bg-white shadow-[0_28px_60px_-28px_rgba(14,29,94,0.35)] ring-1 ring-black/5">
+                  <div className="flex aspect-[5/3] items-center justify-center px-8 py-10">
+                    <Image
+                      src="/images/about/advisors/gracia-global.jpeg"
+                      alt="Gracia Global Advisory"
+                      width={360}
+                      height={120}
+                      sizes="(min-width: 768px) 320px, 80vw"
+                      className="h-auto w-full max-w-[240px] object-contain"
+                    />
+                  </div>
+                </div>
+                <figcaption className="mt-6 text-center md:text-left">
+                  <p className="font-[family-name:var(--font-display)] text-[1.05rem] italic text-foreground">
+                    Gracia Global Advisory
+                  </p>
+                  <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.24em] text-[#0e1d5e]/80">
+                    Business &amp; Sustainability Advisory
+                  </p>
+                </figcaption>
+              </div>
+            </figure>
+
+            {/* Pull quote */}
+            <blockquote className="relative">
+              <span
+                aria-hidden
+                className="absolute -left-1 -top-10 select-none font-[family-name:var(--font-display)] text-[7rem] leading-none text-[#0e1d5e]/15 md:-left-4 md:-top-14 md:text-[9rem]"
+              >
+                &ldquo;
+              </span>
+              <div className="relative flex flex-col gap-5 text-[1rem] leading-[1.75] text-foreground/80 md:text-[1.0625rem]">
+                <p className="font-[family-name:var(--font-display)] text-[1.15rem] italic leading-[1.55] text-foreground md:text-[1.3rem]">
+                  At Gracia Global Advisory, our work is built on{" "}
+                  <em className="not-italic font-normal text-[#0e1d5e]">discipline</em>,{" "}
+                  <em className="not-italic font-normal text-[#0e1d5e]">accountability</em> and{" "}
+                  <em className="not-italic font-normal text-[#0e1d5e]">continuous improvement</em>. We help businesses remove waste from their processes, put the right systems in place, and grow responsibly. Lean Revolution 4 Earth Foundation applies these same principles to the most important challenge of our time: the climate crisis.
+                </p>
+                <p>
+                  We are proud to support the Foundation because it treats climate action as a matter of justice. Its approach puts the communities most exposed to climate change at the centre of the solution — whether through clean energy for rural and tribal households, community-led restoration of forests and mangroves, or youth-driven circular waste systems on campuses. We especially value the Foundation&rsquo;s emphasis on measurable, accountable action, with waste that is counted, recorded and responsibly recycled. That focus on outcomes reflects how we approach our own work.
+                </p>
+                <p>
+                  As a firm that serves businesses across India, we believe sustainable growth has to include the people and ecosystems it depends on. Supporting LR4E is one way we act on that belief, and on our responsibility to the generations who will inherit the systems we build today.
+                </p>
+              </div>
+              <footer className="mt-8 flex items-center gap-4">
+                <span aria-hidden className="h-px w-10 bg-[#0e1d5e]/50" />
+                <span className="text-[11px] font-medium uppercase tracking-[0.26em] text-[#0e1d5e]">
+                  A note from our advisors
+                </span>
+              </footer>
+            </blockquote>
+          </article>
+        </div>
+      </section>
+
       {/* 6 — Lean Philosophy: cream with forest-accented cards */}
       <section
         className="relative overflow-hidden px-6 py-24 md:py-28"
