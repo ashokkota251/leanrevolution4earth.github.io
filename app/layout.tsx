@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Fraunces } from 'next/font/google'
+import localFont from 'next/font/local'
 import Script from 'next/script'
 import './globals.css'
 import { SiteHeader } from '@/components/site-header'
@@ -10,11 +10,20 @@ import { SITE_NAME, SITE_URL } from '@/lib/site'
 const GA_ID = 'G-T4TK350EKJ'
 const isProd = process.env.NODE_ENV === 'production'
 
-const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-inter' })
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
+// Self-hosted variable fonts (no Google Fonts fetch at build time).
+const inter = localFont({
+  src: './fonts/inter-latin-wght-normal.woff2',
+  weight: '100 900',
+  style: 'normal',
+  display: 'swap',
+  variable: '--font-inter',
+})
+const fraunces = localFont({
+  src: [
+    { path: './fonts/fraunces-latin-wght-normal.woff2', weight: '100 900', style: 'normal' },
+    { path: './fonts/fraunces-latin-wght-italic.woff2', weight: '100 900', style: 'italic' },
+  ],
+  display: 'swap',
   variable: '--font-fraunces',
 })
 
